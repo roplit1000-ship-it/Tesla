@@ -43,12 +43,17 @@ app.use('/api/stock', stockRoutes);
 app.use('/api/purchase', require('./routes/purchase'));
 app.use('/api/admin', require('./routes/admin'));
 
-// Serve React build in production
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '../../client/dist')));
+// Serve React build — auto-detect if dist exists
+const distPath = path.join(__dirname, '../../client/dist');
+const fs = require('fs');
+if (fs.existsSync(distPath)) {
+    console.log('Serving static files from', distPath);
+    app.use(express.static(distPath));
     app.get('/{*splat}', (req, res) => {
-        res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
+        res.sendFile(path.join(distPath, 'index.html'));
     });
+} else {
+    console.log('No dist folder found — skipping static file serving (dev mode)');
 }
 const initDB = require('./db/init');
 
