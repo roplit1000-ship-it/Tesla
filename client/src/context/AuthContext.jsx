@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect, useCallback } from 'rea
 import axios from 'axios';
 
 const AuthContext = createContext(null);
-const API = import.meta.env.VITE_API_URL || `http://${window.location.hostname}:5001`;
+const API = import.meta.env.VITE_API_URL || '';
 
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);

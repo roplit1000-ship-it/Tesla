@@ -8,7 +8,7 @@ import Modal from '../components/Modal';
 import ScrollFadeIn from '../components/ScrollFadeIn';
 import './InvestorSimulation.css';
 
-const API = import.meta.env.VITE_API_URL || `http://${window.location.hostname}:5001`;
+const API = import.meta.env.VITE_API_URL || '';
 
 /* ── Same tier personalities as Dashboard ── */
 const tiers = [

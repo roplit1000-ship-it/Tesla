@@ -5,7 +5,7 @@ import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
 import './AdminPortal.css';
 
-const API = import.meta.env.VITE_API_URL || `http://${window.location.hostname}:5001`;
+const API = import.meta.env.VITE_API_URL || '';
 
 export default function AdminPortal() {
     const { user, token } = useAuth();

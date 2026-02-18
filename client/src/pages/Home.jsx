@@ -9,7 +9,7 @@ import ProductShowcase from '../components/ProductShowcase';
 import TeslaCarAnimation from '../components/TeslaCarAnimation';
 import './Home.css';
 
-const API = import.meta.env.VITE_API_URL || `http://${window.location.hostname}:5001`;
+const API = import.meta.env.VITE_API_URL || '';
 
 const exploreTiles = [
     {

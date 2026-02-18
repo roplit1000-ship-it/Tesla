@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './PurchaseForm.css';
 
-const API = import.meta.env.VITE_API_URL || `http://${window.location.hostname}:5001`;
+const API = import.meta.env.VITE_API_URL || '';
 
 export default function PurchaseForm({ tier, product, onClose }) {
     const [form, setForm] = useState({

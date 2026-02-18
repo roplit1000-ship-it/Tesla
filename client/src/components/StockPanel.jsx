@@ -3,7 +3,7 @@ import axios from 'axios';
 import ChartWidget from './ChartWidget';
 import './StockPanel.css';
 
-const API = import.meta.env.VITE_API_URL || `http://${window.location.hostname}:5001`;
+const API = import.meta.env.VITE_API_URL || '';
 const RANGES = ['1D', '1W', '1M'];
 
 export default function StockPanel() {
