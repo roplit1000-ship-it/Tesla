@@ -1,0 +1,44 @@
+:root {
+  /* ── Backgrounds ── */
+  --bg-base: #0B0B0D;
+  --bg-panel: #141417;
+  --bg-glass: rgba(255, 255, 255, 0.04);
+  --bg-glass-hover: rgba(255, 255, 255, 0.07);
+
+  /* ── Text ── */
+  --text-primary: #F5F5F7;
+  --text-secondary: #A1A1AA;
+  --text-muted: #6B7280;
+
+  /* ── Accents ── */
+  --accent-red: #E82127;
+  --accent-red-hover: #ff2d33;
+  --accent-blue: #3B82F6;
+  --accent-blue-dim: rgba(59, 130, 246, 0.15);
+  --accent-purple: #8B5CF6;
+  --accent-purple-dim: rgba(139, 92, 246, 0.15);
+
+  /* ── Borders ── */
+  --border-card: #1F1F23;
+  --border-subtle: #2A2A30;
+
+  /* ── Typography ── */
+  --font-heading: 'Space Grotesk', 'Inter', sans-serif;
+  --font-body: 'Inter', 'DM Sans', sans-serif;
+
+  /* ── Spacing ── */
+  --section-padding-desktop: 80px;
+  --section-padding-mobile: 48px;
+  --card-gap: 24px;
+  --max-width: 1280px;
+
+  /* ── Radius ── */
+  --radius-card: 12px;
+  --radius-btn: 10px;
+  --radius-sm: 8px;
+
+  /* ── Motion ── */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.4s ease;
+}

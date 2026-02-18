@@ -1,0 +1,422 @@
+[
+    {
+        "id": 1,
+        "name": "Model S",
+        "description": "Dual Motor AWD, 405-mile range, 0-60 in 3.1s, 17\" cinematic display, Autopilot included.",
+        "category": "Vehicles",
+        "conditionTag": "New",
+        "image": "/images/products/model-s.png",
+        "price": "$74,990",
+        "specs": {
+            "range": "405 mi",
+            "topSpeed": "149 mph",
+            "acceleration": "3.1s 0-60"
+        }
+    },
+    {
+        "id": 2,
+        "name": "Model S Plaid",
+        "description": "Tri Motor AWD, 1,020 hp, 396-mile range, 0-60 in 1.99s. The fastest accelerating production car ever.",
+        "category": "Vehicles",
+        "conditionTag": "New",
+        "image": "/images/products/model-s.png",
+        "price": "$89,990",
+        "specs": {
+            "range": "396 mi",
+            "topSpeed": "200 mph",
+            "acceleration": "1.99s 0-60"
+        }
+    },
+    {
+        "id": 3,
+        "name": "Model 3",
+        "description": "Rear-Wheel Drive, 272-mile range, 0-60 in 5.8s. Tesla's most affordable sedan with premium tech.",
+        "category": "Vehicles",
+        "conditionTag": "New",
+        "image": "/images/products/model-3.png",
+        "price": "$38,990",
+        "specs": {
+            "range": "272 mi",
+            "topSpeed": "125 mph",
+            "acceleration": "5.8s 0-60"
+        }
+    },
+    {
+        "id": 4,
+        "name": "Model 3 Long Range",
+        "description": "Dual Motor AWD, 358-mile range, 0-60 in 4.2s, refreshed Highland interior with ambient lighting.",
+        "category": "Vehicles",
+        "conditionTag": "New",
+        "image": "/images/products/model-3.png",
+        "price": "$45,990",
+        "specs": {
+            "range": "358 mi",
+            "topSpeed": "145 mph",
+            "acceleration": "4.2s 0-60"
+        }
+    },
+    {
+        "id": 5,
+        "name": "Model X",
+        "description": "Dual Motor AWD, falcon wing doors, 348-mile range, seating for up to 7, 17\" display.",
+        "category": "Vehicles",
+        "conditionTag": "New",
+        "image": "/images/products/model-x.png",
+        "price": "$79,990",
+        "specs": {
+            "range": "348 mi",
+            "topSpeed": "155 mph",
+            "acceleration": "3.8s 0-60"
+        }
+    },
+    {
+        "id": 6,
+        "name": "Model X Plaid",
+        "description": "Tri Motor AWD, 1,020 hp, falcon wing doors, 0-60 in 2.5s. The ultimate SUV performance.",
+        "category": "Vehicles",
+        "conditionTag": "New",
+        "image": "/images/products/model-x.png",
+        "price": "$94,990",
+        "specs": {
+            "range": "326 mi",
+            "topSpeed": "163 mph",
+            "acceleration": "2.5s 0-60"
+        }
+    },
+    {
+        "id": 7,
+        "name": "Model Y",
+        "description": "Rear-Wheel Drive, 260-mile range, panoramic glass roof, 76 cu ft cargo. World's best-selling car.",
+        "category": "Vehicles",
+        "conditionTag": "New",
+        "image": "/images/products/model-y.png",
+        "price": "$36,990",
+        "specs": {
+            "range": "260 mi",
+            "topSpeed": "135 mph",
+            "acceleration": "6.5s 0-60"
+        }
+    },
+    {
+        "id": 8,
+        "name": "Model Y Long Range AWD",
+        "description": "Dual Motor AWD, 330-mile range, 0-60 in 4.8s, premium connectivity, tow package available.",
+        "category": "Vehicles",
+        "conditionTag": "New",
+        "image": "/images/products/model-y.png",
+        "price": "$44,990",
+        "specs": {
+            "range": "330 mi",
+            "topSpeed": "135 mph",
+            "acceleration": "4.8s 0-60"
+        }
+    },
+    {
+        "id": 9,
+        "name": "Cybertruck AWD",
+        "description": "Dual Motor AWD, stainless steel exoskeleton, armor glass, 340-mile range, 11,000 lb towing.",
+        "category": "Vehicles",
+        "conditionTag": "New",
+        "image": "/images/products/cybertruck.png",
+        "price": "$79,990",
+        "specs": {
+            "range": "340 mi",
+            "topSpeed": "112 mph",
+            "acceleration": "4.1s 0-60"
+        }
+    },
+    {
+        "id": 10,
+        "name": "Cybertruck Cyberbeast",
+        "description": "Tri Motor AWD, 845 hp, 0-60 in 2.6s, 320-mile range. The ultimate Cybertruck configuration.",
+        "category": "Vehicles",
+        "conditionTag": "Limited",
+        "image": "/images/products/cybertruck.png",
+        "price": "$99,990",
+        "specs": {
+            "range": "320 mi",
+            "topSpeed": "130 mph",
+            "acceleration": "2.6s 0-60"
+        }
+    },
+    {
+        "id": 11,
+        "name": "Tesla Semi",
+        "description": "Class 8 electric truck, 500-mile range, 0-60 in 20s (loaded), Megacharger compatible.",
+        "category": "Vehicles",
+        "conditionTag": "Limited",
+        "image": "/images/products/semi.png",
+        "price": "$150,000",
+        "specs": {
+            "range": "500 mi",
+            "payload": "82,000 lbs",
+            "acceleration": "20s 0-60 loaded"
+        }
+    },
+    {
+        "id": 12,
+        "name": "Tesla Roadster",
+        "description": "Next-gen all-electric supercar. 620-mile range, 0-60 in 1.9s, 250+ mph top speed. Deposit now.",
+        "category": "Vehicles",
+        "conditionTag": "Limited",
+        "image": "/images/products/roadster.png",
+        "price": "$200,000",
+        "specs": {
+            "range": "620 mi",
+            "topSpeed": "250+ mph",
+            "acceleration": "1.9s 0-60"
+        }
+    },
+    {
+        "id": 13,
+        "name": "Optimus Gen 1",
+        "description": "Tesla's humanoid robot. 5'8\", 125 lbs, 40+ DOF, AI-powered vision and navigation. Walk, lift, and interact.",
+        "category": "Robotics",
+        "conditionTag": "New",
+        "image": "/images/products/optimus.png",
+        "price": "$20,000",
+        "specs": {
+            "height": "5'8\"",
+            "weight": "125 lbs",
+            "battery": "2.3 kWh"
+        }
+    },
+    {
+        "id": 14,
+        "name": "Optimus Gen 2",
+        "description": "Next-gen humanoid robot. 30% faster, 10 kg lighter, Tesla-designed actuators, 11 DOF hands for precision tasks.",
+        "category": "Robotics",
+        "conditionTag": "Limited",
+        "image": "/images/products/optimus-gen2.png",
+        "price": "$25,000",
+        "specs": {
+            "height": "5'8\"",
+            "weight": "115 lbs",
+            "battery": "2.3 kWh"
+        }
+    },
+    {
+        "id": 15,
+        "name": "Optimus Home Edition",
+        "description": "Consumer variant optimized for household tasks. Cooking, cleaning, laundry, and companionship.",
+        "category": "Robotics",
+        "conditionTag": "New",
+        "image": "/images/products/optimus.png",
+        "price": "$18,000",
+        "specs": {
+            "height": "5'8\"",
+            "weight": "120 lbs",
+            "battery": "All-day"
+        }
+    },
+    {
+        "id": 16,
+        "name": "Tesla Phone Model Pi",
+        "description": "6.7\" AMOLED, Snapdragon 8 Gen 3, Starlink satellite connectivity, solar charging back panel, seamless vehicle integration.",
+        "category": "Tech",
+        "conditionTag": "New",
+        "image": "/images/products/phone.png",
+        "price": "$1,199",
+        "specs": {
+            "display": "6.7\" AMOLED",
+            "chip": "SD 8 Gen 3",
+            "storage": "256 GB"
+        }
+    },
+    {
+        "id": 17,
+        "name": "Tesla Phone Model Pi Pro",
+        "description": "6.9\" AMOLED 120Hz, 512 GB, Neuralink pairing-ready, crypto mining, astrophotography mode.",
+        "category": "Tech",
+        "conditionTag": "Limited",
+        "image": "/images/products/phone-pro.png",
+        "price": "$1,499",
+        "specs": {
+            "display": "6.9\" AMOLED",
+            "chip": "SD 8 Gen 3+",
+            "storage": "512 GB"
+        }
+    },
+    {
+        "id": 18,
+        "name": "Powerwall 3",
+        "description": "13.5 kWh home battery, 11.5 kW continuous, solar integration, whole-home backup, storm watch.",
+        "category": "Energy",
+        "conditionTag": "New",
+        "image": "/images/products/powerwall.png",
+        "price": "$9,200",
+        "specs": {
+            "capacity": "13.5 kWh",
+            "power": "11.5 kW",
+            "warranty": "10 years"
+        }
+    },
+    {
+        "id": 19,
+        "name": "Megapack",
+        "description": "Commercial-scale battery storage. 3.9 MWh capacity, integrated inverter, 20-year lifespan.",
+        "category": "Energy",
+        "conditionTag": "New",
+        "image": "/images/products/megapack.png",
+        "price": "$1,700,000",
+        "specs": {
+            "capacity": "3.9 MWh",
+            "power": "1.9 MW",
+            "warranty": "20 years"
+        }
+    },
+    {
+        "id": 20,
+        "name": "Solar Roof",
+        "description": "Architectural glass solar tiles replacing your entire roof. 25-year tile + performance warranty.",
+        "category": "Energy",
+        "conditionTag": "New",
+        "image": "/images/products/solar-roof.png",
+        "price": "From $35,000",
+        "specs": {
+            "warranty": "25 years",
+            "output": "Up to 14 kW",
+            "style": "Textured glass"
+        }
+    },
+    {
+        "id": 21,
+        "name": "Solar Panel System",
+        "description": "Traditional solar panels, 340W per panel, low-profile design, integrated Powerwall support.",
+        "category": "Energy",
+        "conditionTag": "New",
+        "image": "/images/products/solar-panel.png",
+        "price": "From $12,000",
+        "specs": {
+            "perPanel": "340W",
+            "warranty": "25 years",
+            "type": "Monocrystalline"
+        }
+    },
+    {
+        "id": 22,
+        "name": "Wall Connector Gen 3",
+        "description": "Up to 48 amps, 11.5 kW, Wi-Fi enabled, power sharing, sleek indoor/outdoor design.",
+        "category": "Accessories",
+        "conditionTag": "New",
+        "image": "/images/products/wall-connector.png",
+        "price": "$475",
+        "specs": {
+            "power": "11.5 kW",
+            "cord": "24 ft",
+            "connectivity": "Wi-Fi"
+        }
+    },
+    {
+        "id": 23,
+        "name": "Mobile Connector",
+        "description": "Portable charging solution, NEMA 14-50 adapter included, 32A / 7.7 kW, fits any outlet.",
+        "category": "Accessories",
+        "conditionTag": "New",
+        "image": "/images/products/mobile-connector.png",
+        "price": "$200",
+        "specs": {
+            "power": "7.7 kW",
+            "cord": "20 ft",
+            "adapter": "NEMA 14-50"
+        }
+    },
+    {
+        "id": 24,
+        "name": "Tesla Wireless Charging Platform",
+        "description": "FreePower technology, charges up to 3 devices simultaneously, premium aluminum finish.",
+        "category": "Accessories",
+        "conditionTag": "New",
+        "image": "/images/products/charger.png",
+        "price": "$300",
+        "specs": {
+            "devices": "3 simultaneous",
+            "material": "Aluminum",
+            "type": "Qi2"
+        }
+    },
+    {
+        "id": 25,
+        "name": "Full Self-Driving (FSD)",
+        "description": "Software upgrade. Navigate on Autopilot, Auto Lane Change, Autopark, Smart Summon, city driving.",
+        "category": "Software",
+        "conditionTag": "New",
+        "image": "/images/products/fsd.png",
+        "price": "$8,000",
+        "specs": {
+            "type": "OTA Upgrade",
+            "includes": "City Streets",
+            "subscription": "$99/mo"
+        }
+    },
+    {
+        "id": 26,
+        "name": "Premium Connectivity",
+        "description": "Satellite-view maps, live traffic, video streaming, music streaming, internet browser in-car.",
+        "category": "Software",
+        "conditionTag": "New",
+        "image": "/images/products/premium-connect.png",
+        "price": "$9.99/mo",
+        "specs": {
+            "type": "Subscription",
+            "streaming": "Yes",
+            "traffic": "Live"
+        }
+    },
+    {
+        "id": 27,
+        "name": "Cybertruck Matte Black Wrap",
+        "description": "Factory-authorized matte black vinyl wrap, precision-cut panels, professional installation.",
+        "category": "Accessories",
+        "conditionTag": "Limited",
+        "image": "/images/products/wrap-kit.png",
+        "price": "$2,500",
+        "specs": {
+            "material": "3M Vinyl",
+            "finish": "Matte Black",
+            "install": "Professional"
+        }
+    },
+    {
+        "id": 28,
+        "name": "Tesla Tequila",
+        "description": "Limited edition Tesla-shaped lightning bolt bottle. Premium small-batch añejo tequila.",
+        "category": "Lifestyle",
+        "conditionTag": "Limited",
+        "image": "/images/products/tequila.png",
+        "price": "$250",
+        "specs": {
+            "volume": "750 ml",
+            "type": "Añejo",
+            "edition": "Limited"
+        }
+    },
+    {
+        "id": 29,
+        "name": "Cyberquad for Kids",
+        "description": "All-electric ATV for kids. 15 mph top speed, adjustable speed limiter, steel frame, LED light bar.",
+        "category": "Lifestyle",
+        "conditionTag": "New",
+        "image": "/images/products/cyberquad.png",
+        "price": "$1,900",
+        "specs": {
+            "speed": "15 mph",
+            "range": "15 mi",
+            "ages": "8+"
+        }
+    },
+    {
+        "id": 30,
+        "name": "Cyberwhistle",
+        "description": "Premium collectible whistle inspired by Cybertruck. Medical-grade stainless steel, polished finish.",
+        "category": "Lifestyle",
+        "conditionTag": "Limited",
+        "image": "/images/products/cyberwhistle.png",
+        "price": "$50",
+        "specs": {
+            "material": "Stainless Steel",
+            "finish": "Polished",
+            "type": "Collectible"
+        }
+    }
+]

@@ -1,0 +1,197 @@
+.investor-page {
+    padding-top: 64px;
+}
+
+.investor-disclaimer {
+    background: rgba(59, 130, 246, 0.06);
+    border: 1px solid rgba(59, 130, 246, 0.08);
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--accent-blue);
+    font-weight: 500;
+    max-width: var(--max-width);
+    margin: 20px auto 0;
+    letter-spacing: 0.03em;
+}
+
+.investor-header {
+    padding: 48px 24px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.price-panel {
+    background: linear-gradient(145deg, rgba(20, 20, 23, 0.8), rgba(20, 20, 23, 0.4));
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 32px;
+    align-items: center;
+    position: relative;
+}
+
+.price-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.2), transparent);
+}
+
+.price-main h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+}
+
+.price-labels {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.price-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.price-label-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+
+.price-label-dot.support {
+    background: var(--accent-red);
+    box-shadow: 0 0 8px rgba(232, 33, 39, 0.3);
+}
+
+.price-label-dot.resistance {
+    background: #34d399;
+    box-shadow: 0 0 8px rgba(52, 211, 153, 0.3);
+}
+
+/* ── Tier Cards (uses extraordinary tier-card styles from Dashboard.css) ── */
+.tiers-section {
+    padding: 0 24px var(--section-padding-desktop);
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.tiers-section h2 {
+    margin-bottom: 8px;
+}
+
+.tiers-section>p {
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+/* 4-column layout for the simulation page */
+.sim-tier-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+@media (max-width: 1024px) {
+    .sim-tier-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .sim-tier-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Sandbox ── */
+.sandbox-section {
+    padding: 0 24px var(--section-padding-desktop);
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.sandbox-section h2 {
+    margin-bottom: 8px;
+}
+
+.sandbox-section>p {
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+.sandbox-card {
+    background: linear-gradient(145deg, rgba(20, 20, 23, 0.8), rgba(20, 20, 23, 0.4));
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.sandbox-controls label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.sandbox-slider {
+    width: 100%;
+    margin-bottom: 10px;
+    accent-color: var(--accent-red);
+    height: 2px;
+}
+
+.sandbox-value {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+}
+
+.sandbox-projected {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    font-weight: 300;
+}
+
+.sandbox-projected span {
+    color: #34d399;
+    font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+    .price-panel {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .sandbox-card {
+        grid-template-columns: 1fr;
+    }
+}

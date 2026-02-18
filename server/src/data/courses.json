@@ -1,0 +1,199 @@
+[
+    {
+        "id": 1,
+        "title": "Tesla Earnings 101",
+        "description": "Understand how Tesla reports financials and what drives its revenue streams.",
+        "image": "/images/courses/earnings.png",
+        "duration": "5 min",
+        "lessons": [
+            {
+                "id": 1,
+                "title": "Reading the Income Statement",
+                "content": "Tesla's income statement reveals three core revenue streams: automotive sales, energy generation and storage, and services. Automotive consistently accounts for over 80% of total revenue. Key metrics to watch include automotive gross margin, which reflects manufacturing efficiency, and total revenue growth rate, which signals demand trajectory.",
+                "takeaways": [
+                    "Automotive is 80%+ of Tesla revenue",
+                    "Gross margin reflects manufacturing efficiency",
+                    "Revenue growth rate signals demand health"
+                ],
+                "quiz": {
+                    "question": "Which segment accounts for over 80% of Tesla revenue?",
+                    "options": [
+                        "Energy",
+                        "Automotive",
+                        "Services"
+                    ],
+                    "answer": 1
+                }
+            },
+            {
+                "id": 2,
+                "title": "Cash Flow vs Profit",
+                "content": "Tesla's free cash flow often diverges from net income due to massive capital expenditures on new factories and equipment. Understanding operating cash flow minus capex provides a clearer picture of the company's financial health than net income alone. Positive free cash flow means Tesla generates more cash than it spends on growth.",
+                "takeaways": [
+                    "Free cash flow = operating cash flow minus capex",
+                    "Capex is high due to factory buildouts",
+                    "FCF is more telling than net income for growth companies"
+                ],
+                "quiz": {
+                    "question": "What is free cash flow?",
+                    "options": [
+                        "Revenue minus costs",
+                        "Operating cash flow minus capex",
+                        "Net income minus dividends"
+                    ],
+                    "answer": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Time Value of Money",
+        "description": "Learn why a dollar today is worth more than a dollar tomorrow.",
+        "image": "/images/courses/time-value.png",
+        "duration": "5 min",
+        "lessons": [
+            {
+                "id": 1,
+                "title": "Present vs Future Value",
+                "content": "The time value of money is the foundation of all financial analysis. Money available today is worth more than the same amount in the future because of its potential earning capacity. This core principle drives valuation models, investment decisions, and interest rate calculations across all financial markets.",
+                "takeaways": [
+                    "Money today is worth more than money tomorrow",
+                    "Opportunity cost drives time value",
+                    "This principle underpins all valuation models"
+                ],
+                "quiz": {
+                    "question": "Why is $100 today worth more than $100 in a year?",
+                    "options": [
+                        "Inflation only",
+                        "Earning potential and opportunity cost",
+                        "Government regulation"
+                    ],
+                    "answer": 1
+                }
+            },
+            {
+                "id": 2,
+                "title": "Compounding Growth",
+                "content": "Compounding is the process where investment returns generate their own returns over time. Einstein reportedly called it the eighth wonder of the world. In Tesla's context, if the company grows revenue at 30% annually, that growth compounds: $100 becomes $130, then $169, then $220 — accelerating the absolute dollar growth each year.",
+                "takeaways": [
+                    "Returns generate their own returns",
+                    "Small rate differences compound into large gaps",
+                    "Tesla's growth rate compounds revenue significantly"
+                ],
+                "quiz": {
+                    "question": "What does compounding mean?",
+                    "options": [
+                        "Linear growth over time",
+                        "Returns generating their own returns",
+                        "Fixed interest payments"
+                    ],
+                    "answer": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Margins Explained",
+        "description": "Why profit margins matter more than raw revenue for Tesla investors.",
+        "image": "/images/courses/margins.png",
+        "duration": "5 min",
+        "lessons": [
+            {
+                "id": 1,
+                "title": "Gross vs Operating vs Net Margin",
+                "content": "Gross margin shows how much Tesla keeps after direct manufacturing costs. Operating margin adds in R&D, SGA, and other operating expenses. Net margin is the bottom line after interest and taxes. For Tesla, automotive gross margin is the most-watched metric because it reveals whether price cuts are sustainable or eroding profitability.",
+                "takeaways": [
+                    "Gross margin = revenue minus cost of goods sold",
+                    "Operating margin includes R&D and overhead",
+                    "Automotive gross margin is Tesla's key metric"
+                ],
+                "quiz": {
+                    "question": "Which margin is most watched for Tesla?",
+                    "options": [
+                        "Net margin",
+                        "Automotive gross margin",
+                        "EBITDA margin"
+                    ],
+                    "answer": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Delivery Numbers",
+        "description": "How to read Tesla's quarterly delivery reports and what they signal.",
+        "image": "/images/courses/deliveries.png",
+        "duration": "5 min",
+        "lessons": [
+            {
+                "id": 1,
+                "title": "Production vs Deliveries",
+                "content": "Tesla reports both production and delivery numbers quarterly. Production counts vehicles built, while deliveries count vehicles handed to customers. The gap between production and deliveries — known as in-transit inventory — can signal demand strength or weakness. A growing gap may mean vehicles are piling up unsold.",
+                "takeaways": [
+                    "Production ≠ Deliveries",
+                    "The gap reveals demand signals",
+                    "In-transit inventory is a key watchpoint"
+                ],
+                "quiz": {
+                    "question": "What does a growing gap between production and deliveries suggest?",
+                    "options": [
+                        "Strong demand",
+                        "Potential demand weakness",
+                        "Manufacturing problems"
+                    ],
+                    "answer": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Valuation Basics",
+        "description": "PE ratios, forward multiples, and why Tesla trades at a premium.",
+        "image": "/images/courses/valuation.png",
+        "duration": "5 min",
+        "lessons": [
+            {
+                "id": 1,
+                "title": "PE Ratio and Forward PE",
+                "content": "The Price-to-Earnings ratio divides stock price by earnings per share. Tesla's PE is typically much higher than traditional automakers because the market prices in future growth from AI, robotics, and energy. Forward PE uses estimated future earnings, which often tells a more useful story for high-growth companies.",
+                "takeaways": [
+                    "PE = Price / Earnings per share",
+                    "High PE reflects growth expectations",
+                    "Forward PE uses future earnings estimates"
+                ],
+                "quiz": {
+                    "question": "Why does Tesla have a high PE ratio?",
+                    "options": [
+                        "Poor profitability",
+                        "Market pricing in future growth",
+                        "Low stock price"
+                    ],
+                    "answer": 1
+                }
+            },
+            {
+                "id": 2,
+                "title": "Growth Premium Explained",
+                "content": "Tesla trades at a premium to legacy automakers because its total addressable market extends beyond cars into energy, AI, and robotics. Investors assign higher multiples to companies expected to grow rapidly and expand into new markets. This is why Tesla's valuation looks expensive on traditional metrics but potentially reasonable on a forward-looking basis.",
+                "takeaways": [
+                    "TAM extends beyond automotive",
+                    "Growth companies command higher multiples",
+                    "Traditional metrics may not capture full value"
+                ],
+                "quiz": {
+                    "question": "What justifies Tesla's premium valuation?",
+                    "options": [
+                        "Current car sales only",
+                        "Expansion into energy, AI, and robotics",
+                        "Dividend payments"
+                    ],
+                    "answer": 1
+                }
+            }
+        ]
+    }
+]

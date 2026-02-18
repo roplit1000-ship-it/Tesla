@@ -1,0 +1,200 @@
+{
+    "currentPrice": 342.75,
+    "change": 8.32,
+    "changePercent": 2.49,
+    "support": 318.00,
+    "resistance": 360.00,
+    "1D": [
+        {
+            "time": "09:30",
+            "price": 334.43
+        },
+        {
+            "time": "09:45",
+            "price": 335.10
+        },
+        {
+            "time": "10:00",
+            "price": 336.88
+        },
+        {
+            "time": "10:15",
+            "price": 335.50
+        },
+        {
+            "time": "10:30",
+            "price": 337.20
+        },
+        {
+            "time": "10:45",
+            "price": 338.65
+        },
+        {
+            "time": "11:00",
+            "price": 337.90
+        },
+        {
+            "time": "11:15",
+            "price": 339.10
+        },
+        {
+            "time": "11:30",
+            "price": 340.25
+        },
+        {
+            "time": "11:45",
+            "price": 339.80
+        },
+        {
+            "time": "12:00",
+            "price": 340.55
+        },
+        {
+            "time": "12:15",
+            "price": 341.20
+        },
+        {
+            "time": "12:30",
+            "price": 340.90
+        },
+        {
+            "time": "12:45",
+            "price": 341.75
+        },
+        {
+            "time": "13:00",
+            "price": 342.10
+        },
+        {
+            "time": "13:15",
+            "price": 341.50
+        },
+        {
+            "time": "13:30",
+            "price": 342.30
+        },
+        {
+            "time": "13:45",
+            "price": 343.00
+        },
+        {
+            "time": "14:00",
+            "price": 342.50
+        },
+        {
+            "time": "14:15",
+            "price": 343.20
+        },
+        {
+            "time": "14:30",
+            "price": 342.80
+        },
+        {
+            "time": "14:45",
+            "price": 343.50
+        },
+        {
+            "time": "15:00",
+            "price": 342.90
+        },
+        {
+            "time": "15:15",
+            "price": 343.10
+        },
+        {
+            "time": "15:30",
+            "price": 342.60
+        },
+        {
+            "time": "15:45",
+            "price": 342.75
+        },
+        {
+            "time": "16:00",
+            "price": 342.75
+        }
+    ],
+    "1W": [
+        {
+            "time": "Mon",
+            "price": 328.40
+        },
+        {
+            "time": "Tue",
+            "price": 331.15
+        },
+        {
+            "time": "Wed",
+            "price": 334.80
+        },
+        {
+            "time": "Thu",
+            "price": 338.20
+        },
+        {
+            "time": "Fri",
+            "price": 342.75
+        }
+    ],
+    "1M": [
+        {
+            "time": "Jan 13",
+            "price": 310.20
+        },
+        {
+            "time": "Jan 17",
+            "price": 315.50
+        },
+        {
+            "time": "Jan 21",
+            "price": 308.90
+        },
+        {
+            "time": "Jan 24",
+            "price": 318.30
+        },
+        {
+            "time": "Jan 28",
+            "price": 322.10
+        },
+        {
+            "time": "Jan 31",
+            "price": 319.80
+        },
+        {
+            "time": "Feb 04",
+            "price": 325.60
+        },
+        {
+            "time": "Feb 07",
+            "price": 332.40
+        },
+        {
+            "time": "Feb 10",
+            "price": 338.50
+        },
+        {
+            "time": "Feb 13",
+            "price": 342.75
+        }
+    ],
+    "movers": [
+        "Cybertruck deliveries beat estimates by 40%",
+        "Megapack revenue doubled year-over-year",
+        "FSD v13 supervised rollout begins"
+    ],
+    "catalysts": [
+        {
+            "date": "2026-02-28",
+            "event": "Q4 Earnings Report"
+        },
+        {
+            "date": "2026-03-15",
+            "event": "Annual Shareholder Meeting"
+        },
+        {
+            "date": "2026-04-02",
+            "event": "Q1 Delivery Numbers"
+        }
+    ]
+}

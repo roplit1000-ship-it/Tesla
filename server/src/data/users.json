@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "email": "test@tesla.com",
+    "passwordHash": "$2b$10$lB1rEizgCMAb7v/6DUn5/eY48K9V3snU/f6hKYYiNsB/7/aYYXgue",
+    "displayName": "Test User",
+    "createdAt": "2026-02-17T16:32:02.463Z",
+    "balance": 0,
+    "profitPercent": 0,
+    "isAdmin": false
+  },
+  {
+    "id": 2,
+    "email": "demo@tesla.com",
+    "passwordHash": "$2b$10$X0IhiH3jXVT9HfXCjSMEc.EZTdnqtlmnNo46n4/ThCsiJBRB7yv0S",
+    "displayName": "Demo User",
+    "createdAt": "2026-02-18T14:45:10.797Z",
+    "balance": 15000,
+    "profitPercent": 3.75,
+    "isAdmin": false
+  },
+  {
+    "id": 3,
+    "email": "admin@tesla.com",
+    "passwordHash": "$2b$10$hHiI13QAAY/GR9vQDXI6h.5qWeYBvrSkRXZctiKwtPoJv2kA7aQlq",
+    "displayName": "Admin",
+    "createdAt": "2026-02-18T20:50:00.000Z",
+    "balance": 0,
+    "profitPercent": 0,
+    "isAdmin": true
+  }
+]

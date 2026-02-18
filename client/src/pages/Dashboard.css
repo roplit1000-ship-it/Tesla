@@ -1,0 +1,1147 @@
+.dashboard-page {
+    padding-top: 64px;
+    min-height: 100vh;
+}
+
+/* ── Welcome Section ── */
+.dash-welcome {
+    padding: 32px 24px 0;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.dash-welcome-inner {
+    background: linear-gradient(145deg, rgba(20, 20, 23, 0.9), rgba(20, 20, 23, 0.5));
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 32px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.dash-welcome-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(232, 33, 39, 0.3), rgba(139, 92, 246, 0.2), transparent);
+}
+
+.dash-welcome-inner::after {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(232, 33, 39, 0.06) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.dash-welcome-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.dash-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--accent-red) 0%, rgba(139, 92, 246, 0.6) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+}
+
+.dash-greeting {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.dash-greeting span {
+    background: linear-gradient(135deg, var(--accent-red) 0%, #f59e0b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dash-member-since {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+/* ── Balance Display ── */
+.dash-balance {
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.dash-balance-amount {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #22c55e 0%, #4ade80 50%, #86efac 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.dash-balance-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+}
+
+.dash-profit-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.dash-profit-badge.profit-up {
+    background: rgba(34, 197, 94, 0.12);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.1);
+}
+
+.dash-profit-badge.profit-down {
+    background: rgba(239, 68, 68, 0.12);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.1);
+}
+
+.profit-arrow {
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+/* ── Main Grid ── */
+.dash-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 28px 24px 80px;
+}
+
+.dash-col-main {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ── Section Card ── */
+.dash-section {
+    background: linear-gradient(145deg, rgba(20, 20, 23, 0.85), rgba(20, 20, 23, 0.5));
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.dash-tier-section {
+    background: transparent;
+    border: none;
+    padding: 24px 0;
+}
+
+.dash-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.dash-section-header h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.dash-tier-subtitle {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 400;
+}
+
+.dash-see-all {
+    font-size: 0.78rem;
+    color: var(--accent-blue);
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.dash-see-all:hover {
+    color: var(--text-primary);
+}
+
+/* ── Live Badge ── */
+.dash-live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #22c55e;
+    background: rgba(34, 197, 94, 0.08);
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(34, 197, 94, 0.12);
+}
+
+.dash-live-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #22c55e;
+    animation: pulse 2s infinite;
+}
+
+/* ═══════════════════════════════════════════════════
+   ★ EXTRAORDINARY TIER CARDS ★
+   Each card is a living, breathing experience
+   ═══════════════════════════════════════════════════ */
+
+.dash-tier-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* ── Base Card Structure ── */
+.tier-card {
+    position: relative;
+    border-radius: 20px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        box-shadow 0.4s ease;
+    isolation: isolate;
+}
+
+.tier-card:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+/* ── Animated Background Layer ── */
+.tier-card-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Mouse-tracking glow */
+.tier-card-glow {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--tier-glow), transparent 70%);
+    opacity: 0;
+    left: var(--mouse-x);
+    top: var(--mouse-y);
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s;
+    pointer-events: none;
+    filter: blur(30px);
+}
+
+.tier-card:hover .tier-card-glow {
+    opacity: 0.25;
+}
+
+/* Shimmer sweep */
+.tier-card-shimmer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg,
+            transparent 0%,
+            transparent 40%,
+            rgba(255, 255, 255, 0.03) 45%,
+            rgba(255, 255, 255, 0.06) 50%,
+            rgba(255, 255, 255, 0.03) 55%,
+            transparent 60%,
+            transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmerSweep 4s ease-in-out infinite;
+}
+
+@keyframes shimmerSweep {
+
+    0%,
+    100% {
+        background-position: 200% 0;
+    }
+
+    50% {
+        background-position: -200% 0;
+    }
+}
+
+/* ── Floating Particles ── */
+.tier-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.tier-particle {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--tier-color);
+    opacity: 0;
+    animation: particleFloat 6s ease-in-out infinite;
+}
+
+.tp-1 {
+    width: 3px;
+    height: 3px;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.tp-2 {
+    width: 2px;
+    height: 2px;
+    left: 35%;
+    animation-delay: 1s;
+}
+
+.tp-3 {
+    width: 4px;
+    height: 4px;
+    left: 55%;
+    animation-delay: 2s;
+}
+
+.tp-4 {
+    width: 2px;
+    height: 2px;
+    left: 75%;
+    animation-delay: 3s;
+}
+
+.tp-5 {
+    width: 3px;
+    height: 3px;
+    left: 25%;
+    animation-delay: 4s;
+}
+
+.tp-6 {
+    width: 2px;
+    height: 2px;
+    left: 85%;
+    animation-delay: 5s;
+}
+
+@keyframes particleFloat {
+    0% {
+        bottom: -5%;
+        opacity: 0;
+        transform: translateX(0) scale(0);
+    }
+
+    15% {
+        opacity: 0.7;
+        transform: translateX(5px) scale(1);
+    }
+
+    85% {
+        opacity: 0.3;
+        transform: translateX(-8px) scale(0.6);
+    }
+
+    100% {
+        bottom: 105%;
+        opacity: 0;
+        transform: translateX(3px) scale(0);
+    }
+}
+
+/* ── Card Content ── */
+.tier-card-content {
+    position: relative;
+    z-index: 1;
+    padding: 28px 24px 24px;
+    text-align: center;
+}
+
+/* Animated icon */
+.tier-card-icon {
+    font-size: 2.8rem;
+    line-height: 1;
+    margin-bottom: 12px;
+    animation: iconFloat 3s ease-in-out infinite;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes iconFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+/* Name with glow */
+.tier-card-name {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--tier-color);
+    margin-bottom: 4px;
+    text-shadow: 0 0 20px color-mix(in srgb, var(--tier-color) 40%, transparent);
+}
+
+.tier-card-vibe {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--tier-color);
+    opacity: 0.5;
+    margin-bottom: 16px;
+}
+
+/* Animated divider */
+.tier-card-divider {
+    height: 1px;
+    margin: 0 auto 16px;
+    width: 60%;
+    background: linear-gradient(90deg, transparent, var(--tier-color), transparent);
+    opacity: 0.3;
+    animation: dividerPulse 3s ease-in-out infinite;
+}
+
+@keyframes dividerPulse {
+
+    0%,
+    100% {
+        opacity: 0.2;
+        width: 40%;
+    }
+
+    50% {
+        opacity: 0.5;
+        width: 70%;
+    }
+}
+
+.tier-card-range {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+.tier-card-tagline {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    padding: 0 8px;
+}
+
+/* Perks */
+.tier-card-perks {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+}
+
+.tier-card-perk {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.perk-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--tier-color);
+    opacity: 0.6;
+    flex-shrink: 0;
+}
+
+/* CTA Button */
+.tier-card-cta {
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid color-mix(in srgb, var(--tier-color) 30%, transparent);
+    background: color-mix(in srgb, var(--tier-color) 8%, transparent);
+    color: var(--tier-color);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.02em;
+}
+
+.tier-card-cta:hover {
+    background: color-mix(in srgb, var(--tier-color) 20%, transparent);
+    border-color: color-mix(in srgb, var(--tier-color) 50%, transparent);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--tier-color) 20%, transparent);
+}
+
+/* ═══════════════════════════════════
+   ★ NEBULA — Cosmic Starfield ★
+   ═══════════════════════════════════ */
+.tier-card-nebula {
+    background: linear-gradient(160deg, #0c0a1d 0%, #1a1145 40%, #0f0d24 100%);
+    border: 1px solid rgba(129, 140, 248, 0.15);
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.08),
+        inset 0 1px 0 rgba(129, 140, 248, 0.08);
+}
+
+.tier-card-nebula:hover {
+    box-shadow: 0 12px 40px rgba(99, 102, 241, 0.2),
+        0 0 60px rgba(99, 102, 241, 0.08);
+    border-color: rgba(129, 140, 248, 0.35);
+}
+
+/* Star twinkle particles */
+.tier-card-nebula .tier-particle {
+    background: #c7d2fe;
+    box-shadow: 0 0 6px #818cf8;
+    animation-name: starTwinkle;
+}
+
+/* Position stars across the card, not just at top */
+.tier-card-nebula .tp-1 {
+    top: 10%;
+    left: 20%;
+}
+
+.tier-card-nebula .tp-2 {
+    top: 30%;
+    left: 70%;
+}
+
+.tier-card-nebula .tp-3 {
+    top: 50%;
+    left: 40%;
+}
+
+.tier-card-nebula .tp-4 {
+    top: 70%;
+    left: 80%;
+}
+
+.tier-card-nebula .tp-5 {
+    top: 20%;
+    left: 55%;
+}
+
+.tier-card-nebula .tp-6 {
+    top: 85%;
+    left: 15%;
+}
+
+@keyframes starTwinkle {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    15% {
+        opacity: 0.9;
+        transform: scale(1.4);
+    }
+
+    30% {
+        opacity: 0.3;
+        transform: scale(0.6);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    70% {
+        opacity: 0.2;
+        transform: scale(0.5);
+    }
+
+    85% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+}
+
+/* ═══════════════════════════════════
+   ★ APEX — Electric Storm ★
+   ═══════════════════════════════════ */
+.tier-card-apex {
+    background: linear-gradient(160deg, #1a1400 0%, #2d1f00 40%, #1a1500 100%);
+    border: 1px solid rgba(251, 191, 36, 0.15);
+    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.08),
+        inset 0 1px 0 rgba(251, 191, 36, 0.08);
+}
+
+.tier-card-apex:hover {
+    box-shadow: 0 12px 40px rgba(245, 158, 11, 0.2),
+        0 0 60px rgba(245, 158, 11, 0.08);
+    border-color: rgba(251, 191, 36, 0.35);
+}
+
+/* Electric spark particles */
+.tier-card-apex .tier-particle {
+    background: #fde68a;
+    box-shadow: 0 0 8px #fbbf24;
+    animation-name: electricSpark;
+}
+
+@keyframes electricSpark {
+    0% {
+        opacity: 0;
+        bottom: 20%;
+        transform: translateX(0) scaleY(1);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateX(15px) scaleY(2);
+    }
+
+    20% {
+        opacity: 0.3;
+        transform: translateX(-10px) scaleY(1);
+    }
+
+    30% {
+        opacity: 0.9;
+        transform: translateX(8px) scaleY(1.5);
+    }
+
+    50% {
+        opacity: 0;
+        bottom: 80%;
+        transform: translateX(-5px) scaleY(1);
+    }
+
+    100% {
+        opacity: 0;
+        bottom: 100%;
+    }
+}
+
+.tier-card-apex .tier-card-icon {
+    animation: apexPulse 2s ease-in-out infinite;
+}
+
+@keyframes apexPulse {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+        filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+    }
+
+    50% {
+        transform: translateY(-4px) scale(1.1);
+        filter: drop-shadow(0 8px 24px rgba(251, 191, 36, 0.4));
+    }
+}
+
+/* ═══════════════════════════════════
+   ★ TITAN — Inferno Embers ★
+   ═══════════════════════════════════ */
+.tier-card-titan {
+    background: linear-gradient(160deg, #1a0505 0%, #2d0a0a 40%, #1a0808 100%);
+    border: 1px solid rgba(248, 113, 113, 0.15);
+    box-shadow: 0 4px 20px rgba(239, 68, 68, 0.08),
+        inset 0 1px 0 rgba(248, 113, 113, 0.08);
+}
+
+.tier-card-titan:hover {
+    box-shadow: 0 12px 40px rgba(239, 68, 68, 0.2),
+        0 0 60px rgba(239, 68, 68, 0.08);
+    border-color: rgba(248, 113, 113, 0.35);
+}
+
+/* Rising ember particles */
+.tier-card-titan .tier-particle {
+    background: #fca5a5;
+    box-shadow: 0 0 8px #ef4444, 0 0 16px rgba(239, 68, 68, 0.3);
+    animation-name: emberRise;
+    border-radius: 1px;
+}
+
+@keyframes emberRise {
+    0% {
+        bottom: -5%;
+        opacity: 0;
+        transform: translateX(0) scale(0) rotate(0deg);
+    }
+
+    10% {
+        opacity: 0.9;
+        transform: scale(1) rotate(30deg);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: translateX(12px) scale(0.7) rotate(90deg);
+    }
+
+    80% {
+        opacity: 0.2;
+        transform: translateX(-8px) scale(0.3) rotate(150deg);
+    }
+
+    100% {
+        bottom: 100%;
+        opacity: 0;
+        transform: translateX(5px) scale(0) rotate(180deg);
+    }
+}
+
+.tier-card-titan .tier-card-icon {
+    animation: fireGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes fireGlow {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        filter: drop-shadow(0 4px 12px rgba(239, 68, 68, 0.3));
+    }
+
+    25% {
+        transform: translateY(-3px);
+        filter: drop-shadow(0 6px 20px rgba(239, 68, 68, 0.5));
+    }
+
+    75% {
+        transform: translateY(-5px);
+        filter: drop-shadow(0 10px 30px rgba(239, 68, 68, 0.6));
+    }
+}
+
+/* ═══════════════════════════════════
+   ★ QUANTUM — Cosmic Orbits ★
+   ═══════════════════════════════════ */
+.tier-card-quantum {
+    background: linear-gradient(160deg, #0f0520 0%, #1a0a35 40%, #120724 100%);
+    border: 1px solid rgba(192, 132, 252, 0.15);
+    box-shadow: 0 4px 20px rgba(168, 85, 247, 0.08),
+        inset 0 1px 0 rgba(192, 132, 252, 0.08);
+}
+
+.tier-card-quantum:hover {
+    box-shadow: 0 12px 40px rgba(168, 85, 247, 0.25),
+        0 0 80px rgba(168, 85, 247, 0.1);
+    border-color: rgba(192, 132, 252, 0.4);
+}
+
+/* Orbiting particles */
+.tier-card-quantum .tier-particle {
+    background: #e9d5ff;
+    box-shadow: 0 0 10px #a855f7, 0 0 20px rgba(168, 85, 247, 0.3);
+    animation-name: quantumOrbit;
+}
+
+@keyframes quantumOrbit {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg) translateX(30px) scale(0);
+    }
+
+    15% {
+        opacity: 0.8;
+        transform: rotate(60deg) translateX(40px) scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: rotate(180deg) translateX(50px) scale(0.7);
+    }
+
+    85% {
+        opacity: 0.3;
+        transform: rotate(300deg) translateX(35px) scale(0.4);
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate(360deg) translateX(30px) scale(0);
+    }
+}
+
+.tier-card-quantum .tier-card-icon {
+    animation: crownFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes crownFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+        filter: drop-shadow(0 4px 12px rgba(168, 85, 247, 0.3));
+    }
+
+    30% {
+        transform: translateY(-8px) rotate(-3deg);
+        filter: drop-shadow(0 12px 30px rgba(168, 85, 247, 0.5));
+    }
+
+    70% {
+        transform: translateY(-4px) rotate(3deg);
+        filter: drop-shadow(0 8px 20px rgba(168, 85, 247, 0.4));
+    }
+}
+
+/* Quantum gets a special aura ring */
+.tier-card-quantum::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    border: 1px solid rgba(168, 85, 247, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -70%);
+    animation: auraRing 4s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes auraRing {
+
+    0%,
+    100% {
+        width: 100px;
+        height: 100px;
+        opacity: 0.15;
+        border-color: rgba(168, 85, 247, 0.1);
+    }
+
+    50% {
+        width: 160px;
+        height: 160px;
+        opacity: 0.3;
+        border-color: rgba(168, 85, 247, 0.2);
+    }
+}
+
+
+/* ── Sandbox ── */
+.dash-sandbox {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 28px;
+    align-items: center;
+}
+
+.dash-sandbox-controls label {
+    display: block;
+    font-size: 0.73rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* ═══════════════════════════════════
+   REVAMPED MARKETPLACE SIDEBAR
+   ═══════════════════════════════════ */
+.dash-marketplace-section {
+    overflow: hidden;
+}
+
+.dash-marketplace-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.dash-market-card {
+    border-radius: 12px;
+    background: linear-gradient(145deg, rgba(25, 25, 30, 0.9), rgba(18, 18, 22, 0.7));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    overflow: hidden;
+}
+
+.dash-market-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.dash-market-img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.dash-market-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.dash-market-card:hover .dash-market-img img {
+    transform: scale(1.08);
+}
+
+.dash-market-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dash-market-card:hover .dash-market-overlay {
+    opacity: 1;
+}
+
+.dash-market-overlay span {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(4px);
+}
+
+.dash-market-info {
+    padding: 10px 12px;
+}
+
+.dash-market-name {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 4px;
+}
+
+.dash-market-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dash-market-price {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.dash-market-tag {
+    font-size: 0.55rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.dash-market-tag.Certified {
+    color: #22c55e;
+    background: rgba(34, 197, 94, 0.12);
+}
+
+.dash-market-tag.Refurbished {
+    color: var(--accent-blue);
+    background: rgba(59, 130, 246, 0.12);
+}
+
+.dash-market-tag.New {
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.dash-market-tag.Limited {
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.12);
+}
+
+.dash-sim-deposit {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.dash-sim-growth {
+    font-size: 0.8rem;
+    color: #22c55e;
+    margin-left: 6px;
+    font-weight: 500;
+}
+
+.dash-sim-date {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+/* ── Empty State ── */
+.dash-empty-state {
+    text-align: center;
+    padding: 28px 16px;
+}
+
+.dash-empty-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.dash-empty-state p {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+}
+
+.dash-empty-state span {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+/* ═══════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════ */
+@media (max-width: 1024px) {
+    .dash-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dash-welcome-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .dash-welcome-left {
+        flex-direction: column;
+    }
+
+    .dash-tier-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dash-sandbox {
+        grid-template-columns: 1fr;
+    }
+
+    .dash-marketplace-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .dash-welcome-inner {
+        padding: 24px 20px;
+    }
+
+    .dash-greeting {
+        font-size: 1.1rem;
+    }
+
+    .dash-balance-amount {
+        font-size: 1.6rem;
+    }
+
+    .dash-tier-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tier-card-icon {
+        font-size: 2.2rem;
+    }
+
+    .tier-card-name {
+        font-size: 1.1rem;
+    }
+
+    .dash-section {
+        padding: 18px 14px;
+    }
+
+    .dash-grid {
+        padding: 20px 16px 60px;
+    }
+
+    /* Reduce particle animations on mobile */
+    .tier-particle {
+        animation-duration: 8s;
+    }
+
+    .tier-card-shimmer {
+        animation: none;
+    }
+
+    .dash-marketplace-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

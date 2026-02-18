@@ -1,0 +1,248 @@
+/* ══════════════════════════════════════════════
+   TESLA CAR ANIMATION — Cyberpunk Car Image
+   ══════════════════════════════════════════════ */
+
+.tesla-car-anim {
+    position: relative;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    overflow: visible;
+    animation: carDriveIn 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    will-change: transform, opacity;
+    transform: translateZ(0);
+}
+
+@keyframes carDriveIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-120px) scale(0.9);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* ── Car Image ── */
+.car-anim-img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: block;
+    z-index: 2;
+    animation: carHover 4s ease-in-out 2s infinite;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+@keyframes carHover {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* ── Underglow ── */
+.car-anim-underglow {
+    position: absolute;
+    bottom: 8%;
+    left: 15%;
+    right: 15%;
+    height: 16px;
+    background: radial-gradient(ellipse at center,
+            rgba(80, 140, 255, 0.25) 0%,
+            rgba(80, 140, 255, 0.08) 40%,
+            transparent 70%);
+    filter: blur(8px);
+    z-index: 1;
+    animation: underglowPulse 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes underglowPulse {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* ── Road ── */
+.car-anim-road {
+    position: absolute;
+    bottom: 8%;
+    left: -20%;
+    right: -20%;
+    height: 2px;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.car-anim-road-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: repeating-linear-gradient(90deg,
+            rgba(255, 255, 255, 0.12) 0px,
+            rgba(255, 255, 255, 0.12) 30px,
+            transparent 30px,
+            transparent 60px);
+    animation: roadMove 1s linear infinite;
+}
+
+.car-anim-road-line.delay {
+    opacity: 0.5;
+    top: 4px;
+    animation-delay: -0.5s;
+}
+
+@keyframes roadMove {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-60px);
+    }
+}
+
+/* ── Speed lines (trailing behind the car) ── */
+.car-anim-speed-lines {
+    position: absolute;
+    right: -5%;
+    top: 25%;
+    width: 40%;
+    height: 50%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.speed-line {
+    position: absolute;
+    height: 1.5px;
+    background: linear-gradient(270deg, transparent, rgba(100, 180, 255, 0.25), transparent);
+    border-radius: 1px;
+    animation: speedLine 1.5s ease-out infinite;
+}
+
+.sl-1 {
+    top: 10%;
+    width: 50px;
+    animation-delay: 0s;
+}
+
+.sl-2 {
+    top: 30%;
+    width: 70px;
+    animation-delay: 0.3s;
+}
+
+.sl-3 {
+    top: 50%;
+    width: 40px;
+    animation-delay: 0.6s;
+}
+
+.sl-4 {
+    top: 70%;
+    width: 60px;
+    animation-delay: 0.9s;
+}
+
+.sl-5 {
+    top: 90%;
+    width: 35px;
+    animation-delay: 1.2s;
+}
+
+@keyframes speedLine {
+    0% {
+        opacity: 0;
+        transform: translateX(-60px) scaleX(0.5);
+    }
+
+    30% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(60px) scaleX(1.5);
+    }
+}
+
+/* ── Dynamic particles ── */
+.car-anim-particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(100, 180, 255, 0.5);
+    border-radius: 50%;
+    animation: particleDrift 2s ease-out forwards;
+    pointer-events: none;
+    z-index: 3;
+    box-shadow: 0 0 4px rgba(100, 180, 255, 0.3);
+}
+
+@keyframes particleDrift {
+    0% {
+        opacity: 0.6;
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(80px, -15px) scale(0);
+    }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .tesla-car-anim {
+        max-width: 200px;
+    }
+
+    /* Disable heavy effects on mobile */
+    .car-anim-speed-lines,
+    .car-anim-particle {
+        display: none !important;
+    }
+
+    .car-anim-underglow {
+        animation: none;
+        opacity: 0.4;
+    }
+
+    .car-anim-road-line {
+        animation: none;
+    }
+
+    .car-anim-img {
+        animation: none;
+        transform: translateZ(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .tesla-car-anim {
+        max-width: 170px;
+    }
+}

@@ -1,0 +1,235 @@
+.stock-panel {
+    background: linear-gradient(145deg, rgba(20, 20, 23, 0.85), rgba(20, 20, 23, 0.5));
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+}
+
+.stock-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.25), transparent);
+}
+
+/* ── Header ── */
+.stock-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    gap: 16px;
+}
+
+.stock-panel-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.stock-ticker {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--text-primary);
+}
+
+.stock-exchange {
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.stock-price {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.stock-change {
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.stock-change.positive {
+    color: #22c55e;
+}
+
+.stock-change.negative {
+    color: var(--accent-red);
+}
+
+/* ── Range Tabs ── */
+.stock-range-tabs {
+    display: flex;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.stock-range-tab {
+    padding: 6px 14px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    border-radius: 6px;
+    transition: all var(--transition-fast);
+    letter-spacing: 0.04em;
+}
+
+.stock-range-tab.active {
+    background: rgba(59, 130, 246, 0.12);
+    color: var(--accent-blue);
+}
+
+.stock-range-tab:hover:not(.active) {
+    color: var(--text-secondary);
+}
+
+/* ── Chart Area ── */
+.stock-chart-area {
+    margin-bottom: 20px;
+    min-height: 220px;
+}
+
+.stock-chart-loading {
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stock-shimmer {
+    width: 80%;
+    height: 120px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.03) 25%, rgba(255, 255, 255, 0.06) 50%, rgba(255, 255, 255, 0.03) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* ── Meta ── */
+.stock-meta-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.stock-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.stock-meta-item strong {
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.stock-meta-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.stock-meta-dot.support {
+    background: var(--accent-red);
+    box-shadow: 0 0 8px rgba(232, 33, 39, 0.3);
+}
+
+.stock-meta-dot.resistance {
+    background: #34d399;
+    box-shadow: 0 0 8px rgba(52, 211, 153, 0.3);
+}
+
+/* ── Movers ── */
+.stock-movers {
+    margin-bottom: 16px;
+}
+
+.stock-movers-label,
+.stock-catalysts-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.stock-mover-item {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stock-mover-bullet {
+    font-size: 0.7rem;
+}
+
+/* ── Catalysts ── */
+.stock-catalyst-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    padding: 6px 0;
+}
+
+.stock-catalyst-date {
+    font-family: var(--font-heading);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+    background: var(--accent-blue-dim);
+    padding: 3px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+    .stock-panel {
+        padding: 20px 16px;
+    }
+
+    .stock-panel-header {
+        flex-direction: column;
+    }
+
+    .stock-price {
+        font-size: 1.8rem;
+    }
+
+    .stock-meta-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
