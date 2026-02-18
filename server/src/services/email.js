@@ -1,16 +1,22 @@
 const { Resend } = require('resend');
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+let resend = null;
+function getResend() {
+  if (!resend) {
+    resend = new Resend(process.env.RESEND_API_KEY);
+  }
+  return resend;
+}
 
 /**
  * Send a 6-digit verification code email.
  * Template is optimized for both dark and light mode email clients.
  */
 async function sendVerificationCode(toEmail, code, displayName) {
-    const codeStr = code.toString();
-    const digits = codeStr.split('');
+  const codeStr = code.toString();
+  const digits = codeStr.split('');
 
-    const html = `
+  const html = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,19 +122,19 @@ async function sendVerificationCode(toEmail, code, displayName) {
 </body>
 </html>`;
 
-    const { data, error } = await resend.emails.send({
-        from: 'TeslaVerse <noreply@tslaverse.online>',
-        to: [toEmail],
-        subject: `${codeStr} — Your TeslaVerse Verification Code`,
-        html,
-    });
+  const { data, error } = await getResend().emails.send({
+    from: 'TeslaVerse <noreply@tslaverse.online>',
+    to: [toEmail],
+    subject: `${codeStr} — Your TeslaVerse Verification Code`,
+    html,
+  });
 
-    if (error) {
-        console.error('Resend error:', error);
-        throw new Error('Failed to send verification email');
-    }
+  if (error) {
+    console.error('Resend error:', error);
+    throw new Error('Failed to send verification email');
+  }
 
-    return data;
+  return data;
 }
 
 module.exports = { sendVerificationCode };
