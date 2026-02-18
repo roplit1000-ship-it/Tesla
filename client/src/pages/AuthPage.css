@@ -1,17 +1,19 @@
 .auth-page {
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 24px;
     position: relative;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     background: var(--bg-base);
 }
 
 /* ── Ambient Glow Orbs ── */
 .auth-orb {
-    position: absolute;
+    position: fixed;
     border-radius: 50%;
     filter: blur(100px);
     pointer-events: none;
@@ -175,8 +177,10 @@
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 10px;
     color: var(--text-primary);
-    font-size: 0.9rem;
+    font-size: 16px;
     transition: all var(--transition-fast);
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .auth-field input::placeholder {
@@ -219,6 +223,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    cursor: pointer;
 }
 
 .auth-submit::before {
@@ -283,6 +290,7 @@
     font-weight: 600;
     font-size: 0.82rem;
     transition: color var(--transition-fast);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .auth-footer button:hover {
@@ -290,14 +298,59 @@
 }
 
 /* ── Mobile ── */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+    .auth-page {
+        padding: 16px;
+        padding-top: 80px;
+        padding-bottom: 40px;
+        align-items: flex-start;
+    }
+
+    .auth-orb-1,
+    .auth-orb-2,
+    .auth-orb-3 {
+        display: none;
+    }
+
     .auth-card {
         padding: 28px 20px;
         border-radius: 16px;
     }
 
+    .auth-brand {
+        margin-bottom: 20px;
+    }
+
     .auth-title {
         font-size: 1.4rem;
+    }
+
+    .auth-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .auth-tabs {
+        margin-bottom: 20px;
+    }
+
+    .auth-fields {
+        gap: 14px;
+        margin-bottom: 16px;
+    }
+
+    .auth-field input {
+        padding: 12px 14px;
+        font-size: 16px;
+    }
+
+    .auth-submit {
+        padding: 14px;
+        min-height: 50px;
+        font-size: 0.88rem;
+    }
+
+    .auth-code-inputs {
+        gap: 6px;
     }
 
     .auth-code-digit {
