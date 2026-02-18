@@ -52,25 +52,48 @@ function TierCard({ tier, index, onClick }) {
 
     return (
         <motion.div
-            className={`sim-tier-card sim-tier-${tier.cls}`}
-            onMouseMove={handleMouseMove}
-            onClick={onClick}
+            className={`tier-card tier-card-${tier.cls}`}
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1, duration: 0.4 }}
-            style={{ '--mx': `${mousePos.x}%`, '--my': `${mousePos.y}%` }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.12 }}
+            onClick={onClick}
+            onMouseMove={handleMouseMove}
+            style={{
+                '--mouse-x': `${mousePos.x}%`,
+                '--mouse-y': `${mousePos.y}%`,
+                '--tier-color': tier.color,
+                '--tier-glow': tier.glow,
+            }}
         >
-            <div className="sim-tier-glow" />
-            <div className="sim-tier-icon">{tier.icon}</div>
-            <h3>{tier.name}</h3>
-            <span className="sim-tier-badge">{tier.vibe}</span>
-            <p className="sim-tier-range">{tier.range}</p>
-            <p className="sim-tier-tagline">{tier.tagline}</p>
-            <ul className="sim-tier-perks">
-                {tier.perks.map(p => <li key={p}>{p}</li>)}
-            </ul>
-            <div className="sim-tier-cta">Explore →</div>
+            <div className="tier-card-bg">
+                <div className="tier-card-glow" />
+                <div className="tier-card-shimmer" />
+                <div className="tier-particles">
+                    {[...Array(6)].map((_, i) => (
+                        <div key={i} className={`tier-particle tp-${i + 1}`} />
+                    ))}
+                </div>
+            </div>
+
+            <div className="tier-card-content">
+                <div className="tier-card-icon">{tier.icon}</div>
+                <h3 className="tier-card-name">{tier.name}</h3>
+                <div className="tier-card-vibe">{tier.vibe}</div>
+                <div className="tier-card-divider" />
+                <div className="tier-card-range">{tier.range}</div>
+                <p className="tier-card-tagline">"{tier.tagline}"</p>
+                <div className="tier-card-perks">
+                    {tier.perks.map(p => (
+                        <div className="tier-card-perk" key={p}>
+                            <span className="perk-dot" />
+                            {p}
+                        </div>
+                    ))}
+                </div>
+                <button className="tier-card-cta" onClick={(e) => { e.stopPropagation(); onClick(); }}>
+                    Enter {tier.name} →
+                </button>
+            </div>
         </motion.div>
     );
 }
