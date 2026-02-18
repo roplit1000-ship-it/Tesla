@@ -7,7 +7,8 @@
     "createdAt": "2026-02-17T16:32:02.463Z",
     "balance": 0,
     "profitPercent": 0,
-    "isAdmin": false
+    "isAdmin": false,
+    "verified": true
   },
   {
     "id": 2,
@@ -17,16 +18,18 @@
     "createdAt": "2026-02-18T14:45:10.797Z",
     "balance": 15000,
     "profitPercent": 3.75,
-    "isAdmin": false
+    "isAdmin": false,
+    "verified": true
   },
   {
     "id": 3,
-    "email": "admin@tesla.com",
-    "passwordHash": "$2b$10$hHiI13QAAY/GR9vQDXI6h.5qWeYBvrSkRXZctiKwtPoJv2kA7aQlq",
+    "email": "admin@resla.com",
+    "passwordHash": "$2b$10$Q48FqtTdS1XbjtyNiqepZuZqFmc0hmLCy4nl2O4J8nXTS3IsvCJLS",
     "displayName": "Admin",
     "createdAt": "2026-02-18T20:50:00.000Z",
     "balance": 0,
     "profitPercent": 0,
-    "isAdmin": true
+    "isAdmin": true,
+    "verified": true
   }
 ]

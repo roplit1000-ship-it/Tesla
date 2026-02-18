@@ -9,7 +9,6 @@ export function AuthProvider({ children }) {
     const [token, setToken] = useState(() => localStorage.getItem('tesla_token'));
     const [loading, setLoading] = useState(true);
 
-    // Create an axios instance with auth header
     const authAxios = useCallback(() => {
         const instance = axios.create({ baseURL: API });
         const t = token || localStorage.getItem('tesla_token');
@@ -37,16 +36,33 @@ export function AuthProvider({ children }) {
             .finally(() => setLoading(false));
     }, []);
 
-    const login = async (email, password) => {
-        const res = await axios.post(`${API}/api/auth/login`, { email, password });
+    // Register — returns { requiresVerification, email } instead of logging in
+    const register = async (email, password, displayName) => {
+        const res = await axios.post(`${API}/api/auth/register`, { email, password, displayName });
+        return res.data; // { requiresVerification: true, email, message }
+    };
+
+    // Verify email with 6-digit code — this completes registration and logs in
+    const verifyEmail = async (email, code) => {
+        const res = await axios.post(`${API}/api/auth/verify-email`, { email, code });
         localStorage.setItem('tesla_token', res.data.token);
         setToken(res.data.token);
         setUser(res.data.user);
         return res.data;
     };
 
-    const register = async (email, password, displayName) => {
-        const res = await axios.post(`${API}/api/auth/register`, { email, password, displayName });
+    // Resend verification code
+    const resendCode = async (email) => {
+        const res = await axios.post(`${API}/api/auth/resend-code`, { email });
+        return res.data;
+    };
+
+    const login = async (email, password) => {
+        const res = await axios.post(`${API}/api/auth/login`, { email, password });
+        // If requires verification, pass it back without setting token
+        if (res.data.requiresVerification) {
+            return res.data;
+        }
         localStorage.setItem('tesla_token', res.data.token);
         setToken(res.data.token);
         setUser(res.data.user);
@@ -60,7 +76,7 @@ export function AuthProvider({ children }) {
     };
 
     return (
-        <AuthContext.Provider value={{ user, token, loading, login, register, logout, authAxios }}>
+        <AuthContext.Provider value={{ user, token, loading, login, register, logout, authAxios, verifyEmail, resendCode }}>
             {children}
         </AuthContext.Provider>
     );
