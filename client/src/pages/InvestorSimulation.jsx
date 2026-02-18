@@ -1,11 +1,14 @@
-import { useState, useMemo, useRef } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import axios from 'axios';
 import Button from '../components/Button';
 import ChartWidget from '../components/ChartWidget';
 import Modal from '../components/Modal';
 import ScrollFadeIn from '../components/ScrollFadeIn';
 import './InvestorSimulation.css';
+
+const API = import.meta.env.VITE_API_URL || `http://${window.location.hostname}:5001`;
 
 /* ── Same tier personalities as Dashboard ── */
 const tiers = [
@@ -49,48 +52,25 @@ function TierCard({ tier, index, onClick }) {
 
     return (
         <motion.div
-            className={`tier-card tier-card-${tier.cls}`}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.12 }}
-            onClick={onClick}
+            className={`sim-tier-card sim-tier-${tier.cls}`}
             onMouseMove={handleMouseMove}
-            style={{
-                '--mouse-x': `${mousePos.x}%`,
-                '--mouse-y': `${mousePos.y}%`,
-                '--tier-color': tier.color,
-                '--tier-glow': tier.glow,
-            }}
+            onClick={onClick}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1, duration: 0.4 }}
+            style={{ '--mx': `${mousePos.x}%`, '--my': `${mousePos.y}%` }}
         >
-            <div className="tier-card-bg">
-                <div className="tier-card-glow" />
-                <div className="tier-card-shimmer" />
-                <div className="tier-particles">
-                    {[...Array(6)].map((_, i) => (
-                        <div key={i} className={`tier-particle tp-${i + 1}`} />
-                    ))}
-                </div>
-            </div>
-
-            <div className="tier-card-content">
-                <div className="tier-card-icon">{tier.icon}</div>
-                <h3 className="tier-card-name">{tier.name}</h3>
-                <div className="tier-card-vibe">{tier.vibe}</div>
-                <div className="tier-card-divider" />
-                <div className="tier-card-range">{tier.range}</div>
-                <p className="tier-card-tagline">"{tier.tagline}"</p>
-                <div className="tier-card-perks">
-                    {tier.perks.map(p => (
-                        <div className="tier-card-perk" key={p}>
-                            <span className="perk-dot" />
-                            {p}
-                        </div>
-                    ))}
-                </div>
-                <button className="tier-card-cta" onClick={(e) => { e.stopPropagation(); onClick(); }}>
-                    Enter {tier.name} →
-                </button>
-            </div>
+            <div className="sim-tier-glow" />
+            <div className="sim-tier-icon">{tier.icon}</div>
+            <h3>{tier.name}</h3>
+            <span className="sim-tier-badge">{tier.vibe}</span>
+            <p className="sim-tier-range">{tier.range}</p>
+            <p className="sim-tier-tagline">{tier.tagline}</p>
+            <ul className="sim-tier-perks">
+                {tier.perks.map(p => <li key={p}>{p}</li>)}
+            </ul>
+            <div className="sim-tier-cta">Explore →</div>
         </motion.div>
     );
 }
@@ -110,8 +90,29 @@ export default function InvestorSimulation() {
     const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
 
+    // Live stock data
+    const [stockData, setStockData] = useState(null);
+    useEffect(() => {
+        axios.get(`${API}/api/stock`)
+            .then(res => setStockData(res.data))
+            .catch(() => setStockData(null));
+    }, []);
+
     const growthData = useMemo(() => generateGrowthData(deposit), [deposit]);
     const projected = growthData[growthData.length - 1]?.price || deposit;
+
+    const price = stockData?.currentPrice || 342.75;
+    const change = stockData?.change || 8.32;
+    const changePct = stockData?.changePercent || 2.49;
+    const chartPoints = stockData?.data || [
+        { time: '9:30', price: 334 }, { time: '10:30', price: 337 },
+        { time: '11:30', price: 340 }, { time: '12:30', price: 341 },
+        { time: '13:30', price: 342 }, { time: '14:30', price: 343 },
+        { time: '15:30', price: 342.75 },
+    ];
+    const support = stockData?.support || '$318.00';
+    const resistance = stockData?.resistance || '$360.00';
+    const isUp = change >= 0;
 
     return (
         <div className="investor-page">
@@ -119,21 +120,18 @@ export default function InvestorSimulation() {
                 <ScrollFadeIn>
                     <div className="price-panel">
                         <div className="price-main">
-                            <span className="simulation-badge" style={{ marginBottom: 8, display: 'inline-block' }}>Simulated</span>
-                            <h2>$342.75</h2>
-                            <span style={{ color: '#22c55e', fontWeight: 600, fontSize: '0.95rem' }}>+$8.32 (+2.49%)</span>
+                            {stockData?.live && <span className="simulation-badge live-badge" style={{ marginBottom: 8, display: 'inline-block' }}>● Live</span>}
+                            <h2>${price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</h2>
+                            <span style={{ color: isUp ? '#22c55e' : '#ef4444', fontWeight: 600, fontSize: '0.95rem' }}>
+                                {isUp ? '+' : ''}${change.toFixed(2)} ({isUp ? '+' : ''}{changePct.toFixed(2)}%)
+                            </span>
                         </div>
                         <div className="price-chart-area">
-                            <ChartWidget data={[
-                                { time: '9:30', price: 334 }, { time: '10:30', price: 337 },
-                                { time: '11:30', price: 340 }, { time: '12:30', price: 341 },
-                                { time: '13:30', price: 342 }, { time: '14:30', price: 343 },
-                                { time: '15:30', price: 342.75 },
-                            ]} height={160} />
+                            <ChartWidget data={chartPoints} height={160} />
                         </div>
                         <div className="price-labels">
-                            <div className="price-label"><span className="price-label-dot support" /> Support: $318.00</div>
-                            <div className="price-label"><span className="price-label-dot resistance" /> Resistance: $360.00</div>
+                            <div className="price-label"><span className="price-label-dot support" /> Support: {support}</div>
+                            <div className="price-label"><span className="price-label-dot resistance" /> Resistance: {resistance}</div>
                         </div>
                     </div>
                 </ScrollFadeIn>

@@ -50,7 +50,18 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
     });
 }
+const initDB = require('./db/init');
 
-app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server running on port ${PORT} (all interfaces)`);
-});
+// Initialize DB then start server
+initDB()
+    .then(() => {
+        app.listen(PORT, '0.0.0.0', () => {
+            console.log(`Server running on port ${PORT} (all interfaces)`);
+        });
+    })
+    .catch(err => {
+        console.error('DB init failed, starting anyway:', err.message);
+        app.listen(PORT, '0.0.0.0', () => {
+            console.log(`Server running on port ${PORT} (DB init failed)`);
+        });
+    });

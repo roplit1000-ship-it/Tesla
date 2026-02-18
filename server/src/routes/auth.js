@@ -2,39 +2,10 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { body, validationResult } = require('express-validator');
-const fs = require('fs');
-const path = require('path');
+const pool = require('../config/db');
 const { sendVerificationCode } = require('../services/email');
 
 const router = express.Router();
-
-// ── Persistent user store (JSON file) ──
-const USERS_FILE = path.join(__dirname, '..', 'data', 'users.json');
-
-function loadUsers() {
-    try {
-        if (fs.existsSync(USERS_FILE)) {
-            const data = fs.readFileSync(USERS_FILE, 'utf8');
-            return JSON.parse(data);
-        }
-    } catch (err) {
-        console.error('Error loading users:', err);
-    }
-    return [];
-}
-
-function saveUsers(users) {
-    try {
-        const dir = path.dirname(USERS_FILE);
-        if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-        fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2), 'utf8');
-    } catch (err) {
-        console.error('Error saving users:', err);
-    }
-}
-
-let users = loadUsers();
-let nextId = users.length > 0 ? Math.max(...users.map(u => u.id)) + 1 : 1;
 
 function generateCode() {
     return Math.floor(100000 + Math.random() * 900000).toString();
@@ -44,11 +15,11 @@ function userResponse(user) {
     return {
         id: user.id,
         email: user.email,
-        displayName: user.displayName,
-        createdAt: user.createdAt,
-        balance: user.balance || 0,
-        profitPercent: user.profitPercent || 0,
-        isAdmin: user.isAdmin || false,
+        displayName: user.display_name,
+        createdAt: user.created_at,
+        balance: parseFloat(user.balance) || 0,
+        profitPercent: parseFloat(user.profit_percent) || 0,
+        isAdmin: user.is_admin || false,
     };
 }
 
@@ -64,43 +35,30 @@ router.post('/register', [
     try {
         const { email, password, displayName } = req.body;
 
-        // Reload users to avoid stale data
-        users = loadUsers();
-        nextId = users.length > 0 ? Math.max(...users.map(u => u.id)) + 1 : 1;
-
-        if (users.find(u => u.email === email)) {
+        const existing = await pool.query('SELECT id FROM users WHERE email = $1', [email]);
+        if (existing.rows.length > 0) {
             return res.status(409).json({ error: 'Email already registered' });
         }
 
         const hash = await bcrypt.hash(password, 10);
         const code = generateCode();
-        const user = {
-            id: nextId++,
-            email,
-            passwordHash: hash,
-            displayName,
-            createdAt: new Date().toISOString(),
-            balance: 0,
-            profitPercent: 0,
-            isAdmin: false,
-            verified: false,
-            verificationCode: code,
-            codeExpiry: new Date(Date.now() + 10 * 60 * 1000).toISOString(),
-        };
-        users.push(user);
-        saveUsers(users);
+        const codeExpiry = new Date(Date.now() + 10 * 60 * 1000);
 
-        // Send verification email
+        await pool.query(
+            `INSERT INTO users (email, password_hash, display_name, verification_code, code_expiry)
+             VALUES ($1, $2, $3, $4, $5)`,
+            [email, hash, displayName, code, codeExpiry]
+        );
+
         try {
             await sendVerificationCode(email, code, displayName);
         } catch (emailErr) {
             console.error('Email send failed:', emailErr);
-            // Still create the account, user can resend
         }
 
         res.status(201).json({
             requiresVerification: true,
-            email: user.email,
+            email,
             message: 'Verification code sent to your email',
         });
     } catch (err) {
@@ -120,37 +78,22 @@ router.post('/verify-email', [
     try {
         const { email, code } = req.body;
 
-        users = loadUsers();
-        const user = users.find(u => u.email === email);
+        const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
+        const user = result.rows[0];
 
-        if (!user) {
-            return res.status(404).json({ error: 'Account not found' });
-        }
+        if (!user) return res.status(404).json({ error: 'Account not found' });
+        if (user.verified) return res.status(400).json({ error: 'Email is already verified' });
+        if (user.verification_code !== code) return res.status(400).json({ error: 'Invalid verification code' });
+        if (new Date(user.code_expiry) < new Date()) return res.status(400).json({ error: 'Code has expired. Please request a new one.' });
 
-        if (user.verified) {
-            return res.status(400).json({ error: 'Email is already verified' });
-        }
+        await pool.query(
+            'UPDATE users SET verified = true, verification_code = NULL, code_expiry = NULL WHERE id = $1',
+            [user.id]
+        );
 
-        if (user.verificationCode !== code) {
-            return res.status(400).json({ error: 'Invalid verification code' });
-        }
-
-        if (new Date(user.codeExpiry) < new Date()) {
-            return res.status(400).json({ error: 'Code has expired. Please request a new one.' });
-        }
-
-        // Mark as verified
-        user.verified = true;
-        delete user.verificationCode;
-        delete user.codeExpiry;
-        saveUsers(users);
-
-        // Issue JWT
         const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '7d' });
-        res.json({
-            token,
-            user: userResponse(user),
-        });
+        user.verified = true;
+        res.json({ token, user: userResponse(user) });
     } catch (err) {
         console.error('Verify error:', err);
         res.status(500).json({ error: 'Server error' });
@@ -166,25 +109,21 @@ router.post('/resend-code', [
 
     try {
         const { email } = req.body;
+        const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
+        const user = result.rows[0];
 
-        users = loadUsers();
-        const user = users.find(u => u.email === email);
-
-        if (!user) {
-            return res.status(404).json({ error: 'Account not found' });
-        }
-
-        if (user.verified) {
-            return res.status(400).json({ error: 'Email is already verified' });
-        }
+        if (!user) return res.status(404).json({ error: 'Account not found' });
+        if (user.verified) return res.status(400).json({ error: 'Email is already verified' });
 
         const code = generateCode();
-        user.verificationCode = code;
-        user.codeExpiry = new Date(Date.now() + 10 * 60 * 1000).toISOString();
-        saveUsers(users);
+        const codeExpiry = new Date(Date.now() + 10 * 60 * 1000);
 
-        await sendVerificationCode(email, code, user.displayName);
+        await pool.query(
+            'UPDATE users SET verification_code = $1, code_expiry = $2 WHERE id = $3',
+            [code, codeExpiry, user.id]
+        );
 
+        await sendVerificationCode(email, code, user.display_name);
         res.json({ message: 'New code sent to your email' });
     } catch (err) {
         console.error('Resend code error:', err);
@@ -203,15 +142,14 @@ router.post('/login', [
     try {
         const { email, password } = req.body;
 
-        users = loadUsers();
-        const user = users.find(u => u.email === email);
+        const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
+        const user = result.rows[0];
         if (!user) return res.status(401).json({ error: 'Invalid credentials' });
 
-        const valid = await bcrypt.compare(password, user.passwordHash);
+        const valid = await bcrypt.compare(password, user.password_hash);
         if (!valid) return res.status(401).json({ error: 'Invalid credentials' });
 
-        // Check if verified
-        if (user.verified === false) {
+        if (!user.verified) {
             return res.status(403).json({
                 error: 'Please verify your email first',
                 requiresVerification: true,
@@ -220,24 +158,24 @@ router.post('/login', [
         }
 
         const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '7d' });
-        res.json({
-            token,
-            user: userResponse(user),
-        });
+        res.json({ token, user: userResponse(user) });
     } catch (err) {
         console.error('Login error:', err);
         res.status(500).json({ error: 'Server error' });
     }
 });
 
-// ── Get current user profile (auth required) ──
-router.get('/me', require('../middleware/auth'), (req, res) => {
-    users = loadUsers();
-    const user = users.find(u => u.id === req.userId);
-    if (!user) return res.status(404).json({ error: 'User not found' });
-    res.json({
-        user: userResponse(user),
-    });
+// ── Get current user profile ──
+router.get('/me', require('../middleware/auth'), async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM users WHERE id = $1', [req.userId]);
+        const user = result.rows[0];
+        if (!user) return res.status(404).json({ error: 'User not found' });
+        res.json({ user: userResponse(user) });
+    } catch (err) {
+        console.error('Me error:', err);
+        res.status(500).json({ error: 'Server error' });
+    }
 });
 
 module.exports = router;
