@@ -3,7 +3,7 @@ import axios from 'axios';
 import Button from './Button';
 import './SubscribeBlock.css';
 
-const API = import.meta.env.VITE_API_URL || '';
+const API = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:5001' : '');
 
 export default function SubscribeBlock() {
     const [email, setEmail] = useState('');

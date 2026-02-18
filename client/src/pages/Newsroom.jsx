@@ -6,7 +6,7 @@ import SubscribeBlock from '../components/SubscribeBlock';
 import ScrollFadeIn from '../components/ScrollFadeIn';
 import './Newsroom.css';
 
-const API = import.meta.env.VITE_API_URL || '';
+const API = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:5001' : '');
 const categories = ['All', 'Company', 'Vehicles', 'Energy', 'AI', 'Regulation', 'Earnings'];
 
 function formatDate(dateStr) {

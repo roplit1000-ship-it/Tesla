@@ -4,7 +4,7 @@ import Button from '../components/Button';
 import ScrollFadeIn from '../components/ScrollFadeIn';
 import './About.css';
 
-const API = import.meta.env.VITE_API_URL || '';
+const API = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:5001' : '');
 
 export default function About() {
     const [form, setForm] = useState({ name: '', email: '', message: '' });
