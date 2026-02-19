@@ -219,26 +219,6 @@
     .tesla-car-anim {
         max-width: 200px;
     }
-
-    /* Disable heavy effects on mobile */
-    .car-anim-speed-lines,
-    .car-anim-particle {
-        display: none !important;
-    }
-
-    .car-anim-underglow {
-        animation: none;
-        opacity: 0.4;
-    }
-
-    .car-anim-road-line {
-        animation: none;
-    }
-
-    .car-anim-img {
-        animation: none;
-        transform: translateZ(0);
-    }
 }
 
 @media (max-width: 480px) {

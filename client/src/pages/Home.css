@@ -1014,10 +1014,7 @@
         touch-action: manipulation;
     }
 
-    /* Disable subscribe glow on mobile — cleaner look */
-    .subscribe-glow {
-        display: none;
-    }
+
 
     .bento-grid {
         grid-template-columns: 1fr;
@@ -1072,15 +1069,7 @@
         transform: scale(1.05) translateZ(0);
     }
 
-    /* Disable sparkle animations on mobile */
-    .sparkle {
-        display: none !important;
-    }
 
-    /* Simplify subscribe glow */
-    .subscribe-glow {
-        animation: none;
-    }
 
     /* Reduce glow orb blur on mobile */
     .glow-orb {
