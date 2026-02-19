@@ -1137,8 +1137,30 @@
         animation-duration: 8s;
     }
 
+    @keyframes mobileShimmerLoop {
+        0% {
+            transform: translateX(-100%);
+            opacity: 0.5;
+        }
+
+        15% {
+            transform: translateX(100%);
+            opacity: 1;
+        }
+
+        16% {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+    }
+
     .tier-card-shimmer {
-        animation: none;
+        animation: mobileShimmerLoop 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
 
     .dash-marketplace-grid {
