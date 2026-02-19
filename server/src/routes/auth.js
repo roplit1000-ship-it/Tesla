@@ -25,7 +25,7 @@ function userResponse(user) {
 
 // ── Register ──
 router.post('/register', [
-    body('email').isEmail(),
+    body('email').trim().toLowerCase().isEmail(),
     body('password').isLength({ min: 6 }),
     body('displayName').trim().notEmpty(),
 ], async (req, res) => {
@@ -69,7 +69,7 @@ router.post('/register', [
 
 // ── Verify Email ──
 router.post('/verify-email', [
-    body('email').isEmail(),
+    body('email').trim().toLowerCase().isEmail(),
     body('code').isLength({ min: 6, max: 6 }),
 ], async (req, res) => {
     const errors = validationResult(req);
@@ -102,7 +102,7 @@ router.post('/verify-email', [
 
 // ── Resend Code ──
 router.post('/resend-code', [
-    body('email').isEmail(),
+    body('email').trim().toLowerCase().isEmail(),
 ], async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
@@ -133,7 +133,7 @@ router.post('/resend-code', [
 
 // ── Login ──
 router.post('/login', [
-    body('email').isEmail(),
+    body('email').trim().toLowerCase().isEmail(),
     body('password').notEmpty(),
 ], async (req, res) => {
     const errors = validationResult(req);

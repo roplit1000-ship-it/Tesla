@@ -6,19 +6,27 @@ const API = import.meta.env.DEV ? 'http://localhost:5001' : '';
 
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
-    const [token, setToken] = useState(() => localStorage.getItem('tesla_token'));
+    const [token, setToken] = useState(() => {
+        try {
+            return localStorage.getItem('tesla_token');
+        } catch (e) {
+            return null;
+        }
+    });
     const [loading, setLoading] = useState(true);
 
     const authAxios = useCallback(() => {
         const instance = axios.create({ baseURL: API });
-        const t = token || localStorage.getItem('tesla_token');
+        let t = token;
+        try { if (!t) t = localStorage.getItem('tesla_token'); } catch (e) { }
         if (t) instance.defaults.headers.common['Authorization'] = `Bearer ${t}`;
         return instance;
     }, [token]);
 
     // Load user profile on mount / token change
     useEffect(() => {
-        const stored = localStorage.getItem('tesla_token');
+        let stored = null;
+        try { stored = localStorage.getItem('tesla_token'); } catch (e) { }
         if (!stored) { setLoading(false); return; }
 
         axios.get(`${API}/api/auth/me`, {
