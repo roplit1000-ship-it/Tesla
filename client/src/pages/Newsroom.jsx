@@ -6,7 +6,6 @@ import SubscribeBlock from '../components/SubscribeBlock';
 import ScrollFadeIn from '../components/ScrollFadeIn';
 import './Newsroom.css';
 
-const API = import.meta.env.DEV ? 'http://localhost:5001' : '';
 const categories = ['All', 'Company', 'Vehicles', 'Energy', 'AI', 'Regulation', 'Earnings'];
 
 function formatDate(dateStr) {
@@ -28,7 +27,7 @@ export default function Newsroom() {
     const [filter, setFilter] = useState('All');
 
     useEffect(() => {
-        axios.get(`${API}/api/news`).then(res => {
+        axios.get(`/api/news`).then(res => {
             if (res.data?.length) setArticles(res.data);
         }).catch(() => { });
     }, []);

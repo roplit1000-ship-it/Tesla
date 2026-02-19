@@ -5,8 +5,6 @@ import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
 import './AdminPortal.css';
 
-const API = import.meta.env.DEV ? 'http://localhost:5001' : '';
-
 export default function AdminPortal() {
     const { user, token } = useAuth();
     const navigate = useNavigate();
@@ -26,7 +24,7 @@ export default function AdminPortal() {
 
     const fetchUsers = useCallback(async () => {
         try {
-            const res = await axios.get(`${API}/api/admin/users`, {
+            const res = await axios.get(`/api/admin/users`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setUsers(res.data);
@@ -54,7 +52,7 @@ export default function AdminPortal() {
         if (!editUser) return;
         setSaving(true);
         try {
-            const res = await axios.put(`${API}/api/admin/users/${editUser.id}`, {
+            const res = await axios.put(`/api/admin/users/${editUser.id}`, {
                 balance: parseFloat(editForm.balance) || 0,
                 profitPercent: parseFloat(editForm.profitPercent) || 0,
                 displayName: editForm.displayName,

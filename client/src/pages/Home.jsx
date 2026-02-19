@@ -9,8 +9,6 @@ import ProductShowcase from '../components/ProductShowcase';
 import TeslaCarAnimation from '../components/TeslaCarAnimation';
 import './Home.css';
 
-const API = import.meta.env.DEV ? 'http://localhost:5001' : '';
-
 const exploreTiles = [
     {
         title: 'Investor Simulation',
@@ -87,7 +85,7 @@ export default function Home() {
     };
 
     useEffect(() => {
-        axios.get(`${API}/api/stock`).then(res => setStockData(res.data)).catch(() => {
+        axios.get(`/api/stock`).then(res => setStockData(res.data)).catch(() => {
             setStockData(null);
         });
     }, []);

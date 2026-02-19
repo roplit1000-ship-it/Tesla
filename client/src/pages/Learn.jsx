@@ -5,8 +5,6 @@ import Button from '../components/Button';
 import ScrollFadeIn from '../components/ScrollFadeIn';
 import './Learn.css';
 
-const API = import.meta.env.DEV ? 'http://localhost:5001' : '';
-
 const fallbackCoursesData = [
     {
         id: 1, title: 'Tesla Earnings 101', description: 'Understand how Tesla reports financials and what drives its revenue streams.', image: '/images/courses/earnings.png', duration: '5 min', lessonCount: 2, lessons: [
@@ -45,13 +43,13 @@ export default function Learn() {
     const [quizAnswer, setQuizAnswer] = useState(null);
 
     useEffect(() => {
-        axios.get(`${API}/api/learn/courses`).then(res => {
+        axios.get(`/api/learn/courses`).then(res => {
             if (res.data?.length) setCourses(res.data);
         }).catch(() => { });
     }, []);
 
     const openCourse = (id) => {
-        axios.get(`${API}/api/learn/courses/${id}`).then(res => {
+        axios.get(`/api/learn/courses/${id}`).then(res => {
             setActiveCourse(res.data);
             setActiveLesson(0);
             setQuizAnswer(null);

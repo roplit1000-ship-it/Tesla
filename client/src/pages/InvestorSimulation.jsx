@@ -8,8 +8,6 @@ import Modal from '../components/Modal';
 import ScrollFadeIn from '../components/ScrollFadeIn';
 import './InvestorSimulation.css';
 
-const API = import.meta.env.DEV ? 'http://localhost:5001' : '';
-
 /* ── Same tier personalities as Dashboard ── */
 const tiers = [
     {
@@ -116,7 +114,7 @@ export default function InvestorSimulation() {
     // Live stock data
     const [stockData, setStockData] = useState(null);
     useEffect(() => {
-        axios.get(`${API}/api/stock`)
+        axios.get(`/api/stock`)
             .then(res => setStockData(res.data))
             .catch(() => setStockData(null));
     }, []);

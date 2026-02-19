@@ -4,8 +4,6 @@ import Button from '../components/Button';
 import ScrollFadeIn from '../components/ScrollFadeIn';
 import './About.css';
 
-const API = import.meta.env.DEV ? 'http://localhost:5001' : '';
-
 export default function About() {
     const [form, setForm] = useState({ name: '', email: '', message: '' });
     const [sent, setSent] = useState(false);
@@ -13,7 +11,7 @@ export default function About() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`${API}/api/contact`, form);
+            await axios.post(`/api/contact`, form);
             setSent(true);
             setForm({ name: '', email: '', message: '' });
         } catch {

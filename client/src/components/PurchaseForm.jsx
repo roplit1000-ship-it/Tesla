@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import './PurchaseForm.css';
 
-const API = import.meta.env.DEV ? 'http://localhost:5001' : '';
-
 export default function PurchaseForm({ tier, product, onClose }) {
     const [form, setForm] = useState({
         fullName: '',
@@ -29,7 +27,7 @@ export default function PurchaseForm({ tier, product, onClose }) {
         setErrorMsg('');
 
         try {
-            const res = await fetch(`${API}/api/purchase`, {
+            const res = await fetch(`/api/purchase`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

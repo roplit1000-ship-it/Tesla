@@ -3,8 +3,6 @@ import axios from 'axios';
 import Button from './Button';
 import './SubscribeBlock.css';
 
-const API = import.meta.env.DEV ? 'http://localhost:5001' : '';
-
 export default function SubscribeBlock() {
     const [email, setEmail] = useState('');
     const [success, setSuccess] = useState(false);
@@ -13,7 +11,7 @@ export default function SubscribeBlock() {
         e.preventDefault();
         if (!email) return;
         try {
-            await axios.post(`${API}/api/subscribe`, { email });
+            await axios.post(`/api/subscribe`, { email });
             setSuccess(true);
             setEmail('');
         } catch {

@@ -3,7 +3,6 @@ import axios from 'axios';
 import ChartWidget from './ChartWidget';
 import './StockPanel.css';
 
-const API = import.meta.env.DEV ? 'http://localhost:5001' : '';
 const RANGES = ['1D', '1W', '1M'];
 
 export default function StockPanel() {
@@ -13,7 +12,7 @@ export default function StockPanel() {
 
     useEffect(() => {
         setLoading(true);
-        axios.get(`${API}/api/stock`, { params: { range } })
+        axios.get(`/api/stock`, { params: { range } })
             .then(res => setStock(res.data))
             .catch(() => { })
             .finally(() => setLoading(false));
