@@ -56,6 +56,8 @@ router.post('/', [
         const botToken = process.env.TELEGRAM_BOT_TOKEN;
         const chatId = process.env.TELEGRAM_CHAT_ID;
 
+        console.log(`Telegram config: token=${botToken ? botToken.substring(0, 6) + '...' : 'MISSING'}, chatId=${chatId || 'MISSING'}`);
+
         if (botToken && chatId) {
             const telegramMsg = [
                 `${itemType === 'tier' ? '📊' : '🛒'} *New ${itemType === 'tier' ? 'Tier Deposit' : 'Product Order'}*`,
@@ -72,7 +74,7 @@ router.post('/', [
 
             try {
                 const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
-                await fetch(telegramUrl, {
+                const tgRes = await fetch(telegramUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -81,10 +83,17 @@ router.post('/', [
                         parse_mode: 'Markdown',
                     }),
                 });
-                console.log('✅ Telegram notification sent');
+                const tgData = await tgRes.json();
+                if (tgData.ok) {
+                    console.log('✅ Telegram notification sent successfully');
+                } else {
+                    console.error('❌ Telegram API error:', JSON.stringify(tgData));
+                }
             } catch (tgErr) {
                 console.error('⚠️  Telegram notification failed:', tgErr.message);
             }
+        } else {
+            console.log('⚠️  Telegram not configured — skipping notification');
         }
 
         res.status(201).json({
