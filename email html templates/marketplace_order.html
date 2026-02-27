@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Marketplace Order Status</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f7f7f9;
+            margin: 0;
+            padding: 0;
+            color: #000000;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Modern Gradient Header */
+        .header {
+            background: linear-gradient(135deg, #111111 0%, #2a2a2a 100%);
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+        }
+
+        .header p {
+            color: #a1a1aa;
+            margin-top: 10px;
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        .content {
+            padding: 40px;
+            line-height: 1.6;
+            color: #52525b;
+            font-size: 15px;
+        }
+
+        .content p {
+            margin-top: 0;
+        }
+
+        /* Premium Order Card */
+        .order-card {
+            background-color: #ffffff;
+            border: 1px solid #e4e4e7;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed #e4e4e7;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .order-meta {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            font-size: 12px;
+            color: #a1a1aa;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .meta-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #18181b;
+        }
+
+        /* Product Row */
+        .product-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .product-info {
+            flex-grow: 1;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #18181b;
+            margin-bottom: 6px;
+        }
+
+        .product-desc {
+            font-size: 14px;
+            color: #71717a;
+        }
+
+        .product-price {
+            font-size: 16px;
+            font-weight: 600;
+            color: #18181b;
+            text-align: right;
+        }
+
+        /* Totals */
+        .totals {
+            border-top: 1px solid #e4e4e7;
+            padding-top: 20px;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #52525b;
+        }
+
+        .grand-total {
+            font-size: 20px;
+            font-weight: 700;
+            color: #18181b;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e4e4e7;
+        }
+
+        /* Button */
+        .btn-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #111111;
+            color: #ffffff;
+            padding: 16px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn:hover {
+            background-color: #000000;
+            transform: translateY(-2px);
+        }
+
+        /* Support Box */
+        .support-box {
+            background-color: #f8fafc;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            text-align: center;
+            font-size: 13px;
+            color: #a1a1aa;
+            border-top: 1px solid #f4f4f5;
+        }
+
+        .footer-logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: #18181b;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Order Set in Motion</h1>
+            <p>Your premium package is secured and processing.</p>
+        </div>
+
+        <div class="content">
+            <p style="font-size: 18px; color: #18181b; font-weight: 500;">Hello [Customer Name],</p>
+            <p>Excellence takes a moment. We've received your order and our elite team is already preparing it for you.
+                You will receive an exclusive update the moment your package departs.</p>
+
+            <div class="order-card">
+                <div class="order-header">
+                    <div class="order-meta">
+                        <span class="meta-label">Order Number</span>
+                        <span class="meta-value">#INV-10928</span>
+                    </div>
+                    <div class="order-meta" style="text-align: right;">
+                        <span class="meta-label">Order Date</span>
+                        <span class="meta-value">Oct 24, 2026</span>
+                    </div>
+                </div>
+
+                <div class="product-row">
+                    <div class="product-info">
+                        <div class="product-name">Premium Signature Strategy</div>
+                        <div class="product-desc">Qty: 1 • Lifetime Access</div>
+                    </div>
+                    <div class="product-price">$2,450.00</div>
+                </div>
+
+                <div class="totals">
+                    <div class="total-row">
+                        <span>Subtotal</span>
+                        <span>$2,450.00</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Taxes</span>
+                        <span>$0.00</span>
+                    </div>
+                    <div class="total-row grand-total">
+                        <span>Total Processed</span>
+                        <span>$2,450.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-container">
+                <a href="#" class="btn">View Order Dashboard</a>
+            </div>
+
+            <div class="support-box">
+                Need to amend your order details? Our concierge support team is ready to assist you.
+            </div>
+        </div>
+
+        <div class="footer">
+            <span class="footer-logo">TESLA FINANCE</span>
+            <p>&copy; 2026. All rights reserved.</p>
+            <p>If you did not authorize this transaction, contact support immediately.</p>
+        </div>
+    </div>
+</body>
+
+</html>

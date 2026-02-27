@@ -131,7 +131,6 @@ function generateGrowthData(deposit, months = 12, rate = 0.035) {
 export default function TierDetail() {
     const { tierSlug } = useParams();
     const navigate = useNavigate();
-    const [showPurchase, setShowPurchase] = useState(false);
 
     const tier = tierData[tierSlug];
 
@@ -192,7 +191,7 @@ export default function TierDetail() {
                                 <span className="td-stat-label">12mo Projection</span>
                             </div>
                         </div>
-                        <button className="td-hero-cta" onClick={() => setShowPurchase(true)}>
+                        <button className="td-hero-cta" onClick={() => navigate(`/deposit/${tierSlug}`)}>
                             Get Started — {tier.name}
                         </button>
                     </ScrollFadeIn>
@@ -357,20 +356,14 @@ export default function TierDetail() {
                     <div className="td-purchase-cta-card" style={{ borderColor: `${tier.color}33` }}>
                         <h2>Ready to join {tier.name}?</h2>
                         <p>Start your investment journey today with a deposit from {tier.range}.</p>
-                        <button className="td-purchase-btn" style={{ background: tier.gradient }} onClick={() => setShowPurchase(true)}>
+                        <button className="td-purchase-btn" style={{ background: tier.gradient }} onClick={() => navigate(`/deposit/${tierSlug}`)}>
                             {tier.icon} Invest in {tier.name} — From ${tier.minDeposit.toLocaleString()}
                         </button>
                     </div>
                 </ScrollFadeIn>
             </section>
 
-            {/* ══ PURCHASE MODAL ══ */}
-            {showPurchase && (
-                <PurchaseForm
-                    tier={tier}
-                    onClose={() => setShowPurchase(false)}
-                />
-            )}
+            {/* Purchase code removed since it has been moved to DepositPage */}
         </div>
     );
 }
