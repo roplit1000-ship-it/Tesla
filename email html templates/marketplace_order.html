@@ -3,14 +3,21 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
     <title>Marketplace Order Status</title>
     <style>
+        :root {
+            color-scheme: light dark;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f7f7f9;
+            background-color: #f4f4f5;
             margin: 0;
             padding: 0;
-            color: #000000;
+            color: #1a1a1a;
         }
 
         .container {
@@ -22,23 +29,11 @@
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
         }
 
-        /* Modern Gradient Header */
         .header {
             background: linear-gradient(135deg, #111111 0%, #2a2a2a 100%);
             padding: 50px 40px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            color: #ffffff;
         }
 
         .header h1 {
@@ -50,7 +45,7 @@
         }
 
         .header p {
-            color: #a1a1aa;
+            color: #cccccc;
             margin-top: 10px;
             font-size: 15px;
             margin-bottom: 0;
@@ -58,29 +53,29 @@
 
         .content {
             padding: 40px;
-            line-height: 1.6;
-            color: #52525b;
+            line-height: 1.7;
+            color: #333333;
             font-size: 15px;
         }
 
         .content p {
             margin-top: 0;
+            color: #333333;
         }
 
-        /* Premium Order Card */
+        /* Order Card */
         .order-card {
-            background-color: #ffffff;
+            background-color: #fafafa;
             border: 1px solid #e4e4e7;
             border-radius: 12px;
             padding: 30px;
             margin: 30px 0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
         }
 
         .order-header {
             display: flex;
             justify-content: space-between;
-            border-bottom: 1px dashed #e4e4e7;
+            border-bottom: 1px dashed #d4d4d8;
             padding-bottom: 20px;
             margin-bottom: 20px;
         }
@@ -92,7 +87,7 @@
 
         .meta-label {
             font-size: 12px;
-            color: #a1a1aa;
+            color: #666666;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             font-weight: 600;
@@ -102,10 +97,9 @@
         .meta-value {
             font-size: 16px;
             font-weight: 600;
-            color: #18181b;
+            color: #111111;
         }
 
-        /* Product Row */
         .product-row {
             display: flex;
             justify-content: space-between;
@@ -120,23 +114,22 @@
         .product-name {
             font-size: 16px;
             font-weight: 600;
-            color: #18181b;
+            color: #111111;
             margin-bottom: 6px;
         }
 
         .product-desc {
             font-size: 14px;
-            color: #71717a;
+            color: #555555;
         }
 
         .product-price {
             font-size: 16px;
             font-weight: 600;
-            color: #18181b;
+            color: #111111;
             text-align: right;
         }
 
-        /* Totals */
         .totals {
             border-top: 1px solid #e4e4e7;
             padding-top: 20px;
@@ -147,13 +140,13 @@
             justify-content: space-between;
             margin-bottom: 12px;
             font-size: 14px;
-            color: #52525b;
+            color: #444444;
         }
 
         .grand-total {
             font-size: 20px;
             font-weight: 700;
-            color: #18181b;
+            color: #111111;
             margin-top: 15px;
             padding-top: 15px;
             border-top: 1px solid #e4e4e7;
@@ -172,45 +165,131 @@
             padding: 16px 40px;
             text-decoration: none;
             border-radius: 30px;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 16px;
-            transition: all 0.2s ease;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .btn:hover {
-            background-color: #000000;
-            transform: translateY(-2px);
         }
 
         /* Support Box */
         .support-box {
-            background-color: #f8fafc;
+            background-color: #f0f0f5;
             border-radius: 8px;
             padding: 20px;
             text-align: center;
             margin-top: 40px;
             font-size: 14px;
-            color: #64748b;
+            color: #444444;
         }
 
         /* Footer */
         .footer {
-            background-color: #ffffff;
+            background-color: #fafafa;
             padding: 30px 40px;
             text-align: center;
             font-size: 13px;
-            color: #a1a1aa;
-            border-top: 1px solid #f4f4f5;
+            color: #666666;
+            border-top: 1px solid #eeeeee;
         }
 
         .footer-logo {
             font-size: 18px;
             font-weight: 700;
-            color: #18181b;
+            color: #111111;
             letter-spacing: 1px;
             margin-bottom: 15px;
             display: block;
+        }
+
+        /* ─── DARK MODE ─── */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #050505;
+                color: #f0f0f0;
+            }
+
+            .container {
+                background-color: #0f0f11;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+                border: 1px solid #222222;
+            }
+
+            .header {
+                background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            }
+
+            .header p {
+                color: #cccccc;
+            }
+
+            .content {
+                color: #e4e4e7;
+            }
+
+            .content p {
+                color: #e4e4e7;
+            }
+
+            .order-card {
+                background-color: #141416;
+                border-color: #2a2a2a;
+            }
+
+            .order-header {
+                border-bottom-color: #333333;
+            }
+
+            .meta-label {
+                color: #999999;
+            }
+
+            .meta-value {
+                color: #ffffff;
+            }
+
+            .product-name {
+                color: #ffffff;
+            }
+
+            .product-desc {
+                color: #bbbbbb;
+            }
+
+            .product-price {
+                color: #ffffff;
+            }
+
+            .totals {
+                border-top-color: #333333;
+            }
+
+            .total-row {
+                color: #cccccc;
+            }
+
+            .grand-total {
+                color: #ffffff;
+                border-top-color: #333333;
+            }
+
+            .btn {
+                background-color: #ffffff;
+                color: #000000;
+            }
+
+            .support-box {
+                background-color: #141416;
+                color: #cccccc;
+            }
+
+            .footer {
+                background-color: #0a0a0a;
+                color: #888888;
+                border-top-color: #222222;
+            }
+
+            .footer-logo {
+                color: #ffffff;
+            }
         }
     </style>
 </head>
@@ -223,7 +302,7 @@
         </div>
 
         <div class="content">
-            <p style="font-size: 18px; color: #18181b; font-weight: 500;">Hello [Customer Name],</p>
+            <p style="font-size: 18px; font-weight: 500;">Hello [Customer Name],</p>
             <p>Excellence takes a moment. We've received your order and our elite team is already preparing it for you.
                 You will receive an exclusive update the moment your package departs.</p>
 
