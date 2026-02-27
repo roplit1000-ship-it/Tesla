@@ -1,0 +1,324 @@
+.mkp-deposit-page {
+    min-height: 100vh;
+    background-color: #050505;
+    padding-bottom: 80px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Hero Section */
+.mkp-hero {
+    position: relative;
+    padding: 100px 20px 60px;
+    text-align: center;
+    color: white;
+    background: linear-gradient(135deg, #111111 0%, #2a2a2a 100%);
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mkp-hero-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.mkp-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: floatUp linear infinite;
+}
+
+.mkp-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.mkp-icon {
+    font-size: 56px;
+    margin-bottom: 20px;
+    display: inline-block;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
+}
+
+.mkp-hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin: 0 0 10px;
+    letter-spacing: -0.5px;
+}
+
+.mkp-hero-content p {
+    font-size: 1.1rem;
+    color: #a1a1aa;
+    font-weight: 300;
+}
+
+/* Layout */
+.mkp-container {
+    max-width: 1000px;
+    margin: -40px auto 0;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.mkp-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 30px;
+}
+
+@media (max-width: 850px) {
+    .mkp-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Cards */
+.mkp-card {
+    padding: 40px;
+    background: rgba(18, 18, 20, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2) !important;
+}
+
+.mkp-card-title {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 0 0 12px;
+    color: #fff;
+}
+
+.mkp-card-desc {
+    color: #a1a1aa;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+/* Form Input */
+.mkp-input-group {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.mkp-currency {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #a1a1aa;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.mkp-input {
+    width: 100%;
+    padding: 20px 20px 20px 50px;
+    background: #0a0a0c;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 600;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.mkp-input:focus {
+    border-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+/* Buttons */
+.mkp-btn-primary {
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 30px;
+    background: #ffffff;
+    color: #000000;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+}
+
+.mkp-btn-primary:hover {
+    transform: translateY(-2px);
+    background: #e4e4e7;
+}
+
+.mkp-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.mkp-btn-secondary {
+    flex: 0 0 120px;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: transparent;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.mkp-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Wallet Box */
+.mkp-wallet-box {
+    background: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.mkp-network-badge {
+    display: inline-block;
+    background: #222222;
+    color: #ffffff;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.mkp-wallet-address {
+    font-family: monospace;
+    font-size: 1.15rem;
+    color: #ffffff;
+    word-break: break-all;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+.mkp-copy-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 24px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.mkp-copy-btn:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+.mkp-warning {
+    display: flex;
+    gap: 15px;
+    background: rgba(239, 68, 68, 0.05);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.mkp-warn-icon {
+    font-size: 1.4rem;
+}
+
+.mkp-warning p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #fca5a5;
+    line-height: 1.5;
+}
+
+/* Success Card */
+.mkp-success-card {
+    text-align: center;
+    padding: 60px 40px;
+}
+
+.mkp-success-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #000;
+    background: #fff;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Sidebar */
+.mkp-summary {
+    padding: 30px;
+    background: rgba(18, 18, 20, 0.8) !important;
+}
+
+.mkp-summary h3 {
+    margin: 0 0 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.mkp-summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: #a1a1aa;
+    font-size: 0.95rem;
+}
+
+.mkp-total-row {
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 600;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.mkp-divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 20px 0;
+}
+
+.mkp-trust-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mkp-badge {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #e4e4e7;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

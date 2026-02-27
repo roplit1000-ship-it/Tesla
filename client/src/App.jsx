@@ -16,6 +16,7 @@ import AuthPage from './pages/AuthPage';
 import Dashboard from './pages/Dashboard';
 import TierDetail from './pages/TierDetail';
 import DepositPage from './pages/DepositPage';
+import MarketplaceDeposit from './pages/MarketplaceDeposit';
 import AdminPortal from './pages/AdminPortal';
 import './styles/global.css';
 
@@ -42,6 +43,7 @@ function AppContent() {
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/tier/:tierSlug" element={<TierDetail />} />
           <Route path="/deposit/:tierSlug" element={<DepositPage />} />
+          <Route path="/order-checkout" element={<MarketplaceDeposit />} />
           <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
           <Route path="/admin" element={<PrivateRoute><AdminPortal /></PrivateRoute>} />
         </Routes>

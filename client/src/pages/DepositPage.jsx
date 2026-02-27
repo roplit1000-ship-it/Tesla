@@ -60,9 +60,11 @@ export default function DepositPage() {
     const navigate = useNavigate();
     const tier = tierData[tierSlug];
 
-    const [amount, setAmount] = useState(tier ? tier.minDeposit : 0);
+    const [amount, setAmount] = useState(tier ? String(tier.minDeposit) : '');
     const [step, setStep] = useState(1); // 1: Amount, 2: Payment, 3: Success
     const [copied, setCopied] = useState(false);
+
+    const numericAmount = Number(amount) || 0;
 
     useEffect(() => {
         if (!tier) navigate('/investor'); // Redirect if invalid tier
@@ -78,7 +80,7 @@ export default function DepositPage() {
 
     const handleConfirmAmount = (e) => {
         e.preventDefault();
-        if (amount >= tier.minDeposit && amount <= tier.maxDeposit) {
+        if (numericAmount >= tier.minDeposit && numericAmount <= tier.maxDeposit) {
             setStep(2);
         } else {
             alert(`Amount must be between $${tier.minDeposit.toLocaleString()} and $${tier.maxDeposit.toLocaleString()}`);
@@ -124,18 +126,19 @@ export default function DepositPage() {
                                         <div className="dp-input-group">
                                             <span className="dp-currency">$</span>
                                             <input
-                                                type="number"
+                                                type="text"
+                                                inputMode="numeric"
+                                                pattern="[0-9]*"
                                                 className="dp-input"
                                                 value={amount}
-                                                onChange={(e) => setAmount(Number(e.target.value))}
-                                                min={tier.minDeposit}
-                                                max={tier.maxDeposit}
+                                                onChange={(e) => setAmount(e.target.value.replace(/[^0-9]/g, ''))}
+                                                placeholder="0"
                                             />
                                         </div>
                                         <div className="dp-quick-amounts">
-                                            <button type="button" onClick={() => setAmount(tier.minDeposit)}>Min</button>
-                                            <button type="button" onClick={() => setAmount(Math.floor((tier.minDeposit + tier.maxDeposit) / 2))}>Mid</button>
-                                            <button type="button" onClick={() => setAmount(tier.maxDeposit)}>Max</button>
+                                            <button type="button" onClick={() => setAmount(String(tier.minDeposit))}>Min</button>
+                                            <button type="button" onClick={() => setAmount(String(Math.floor((tier.minDeposit + tier.maxDeposit) / 2)))}>Mid</button>
+                                            <button type="button" onClick={() => setAmount(String(tier.maxDeposit))}>Max</button>
                                         </div>
                                         <button type="submit" className="dp-btn-primary" style={{ background: tier.gradient }}>Proceed to Payment</button>
                                     </form>
@@ -145,7 +148,7 @@ export default function DepositPage() {
                             {step === 2 && (
                                 <GlassCard className="dp-card">
                                     <h2 className="dp-card-title">2. Make Your Transfer</h2>
-                                    <p className="dp-card-desc">Send exactly <strong>${amount.toLocaleString()} {tier.network.split(' ')[0]}</strong> to the wallet address below via the <strong>{tier.network}</strong> network.</p>
+                                    <p className="dp-card-desc">Send exactly <strong>${numericAmount.toLocaleString()} {tier.network.split(' ')[0]}</strong> to the wallet address below via the <strong>{tier.network}</strong> network.</p>
 
                                     <div className="dp-wallet-box">
                                         <div className="dp-network-badge">{tier.network}</div>
@@ -171,7 +174,7 @@ export default function DepositPage() {
                                 <GlassCard className="dp-card dp-success-card">
                                     <div className="dp-success-icon" style={{ background: tier.gradient }}>✓</div>
                                     <h2 className="dp-card-title">Verification in Progress</h2>
-                                    <p className="dp-card-desc">We are confirming your deposit of <strong>${amount.toLocaleString()}</strong> into the <strong>{tier.name}</strong> on the blockchain. Once confirmed, your dashboard will be updated automatically.</p>
+                                    <p className="dp-card-desc">We are confirming your deposit of <strong>${numericAmount.toLocaleString()}</strong> into the <strong>{tier.name}</strong> on the blockchain. Once confirmed, your dashboard will be updated automatically.</p>
                                     <button className="dp-btn-primary" style={{ background: tier.gradient }} onClick={() => navigate('/dashboard')}>Go to Dashboard</button>
                                 </GlassCard>
                             )}
