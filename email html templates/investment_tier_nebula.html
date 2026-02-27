@@ -4,223 +4,93 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light dark">
-    <meta name="supported-color-schemes" content="light dark">
     <title>Nebula Tier Eligibility</title>
-    <style>
-        :root {
-            color-scheme: light dark;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f4f4f5;
-            margin: 0;
-            padding: 0;
-            color: #1a1a1a;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 40px auto;
-            background-color: #ffffff;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        .hero {
-            padding: 60px 40px;
-            text-align: center;
-            background: linear-gradient(135deg, #4338ca 0%, #6366f1 50%, #818cf8 100%);
-            color: #ffffff;
-        }
-
-        .icon-wrap {
-            font-size: 48px;
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-
-        .hero h1 {
-            margin: 0;
-            font-size: 32px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            color: #ffffff;
-        }
-
-        .content {
-            padding: 40px 40px 50px;
-            line-height: 1.8;
-            color: #333333;
-            font-size: 16px;
-            text-align: center;
-        }
-
-        .content h2 {
-            margin-top: 0;
-            color: #111111;
-            font-size: 24px;
-            font-weight: 500;
-            margin-bottom: 25px;
-        }
-
-        .content p {
-            color: #333333;
-        }
-
-        .content strong {
-            color: #111111;
-        }
-
-        .highlight-box {
-            background-color: #f0f0ff;
-            border-left: 4px solid #818cf8;
-            padding: 25px;
-            margin: 30px 0;
-            border-radius: 0 8px 8px 0;
-            text-align: left;
-        }
-
-        .highlight-box p {
-            margin: 0;
-            font-size: 16px;
-            color: #222222;
-        }
-
-        .perks {
-            list-style: none;
-            padding: 0;
-            margin: 25px 0;
-            text-align: left;
-        }
-
-        .perks li {
-            margin-bottom: 12px;
-            color: #222222;
-            display: flex;
-            align-items: center;
-            font-weight: 500;
-        }
-
-        .perks li::before {
-            content: '✦';
-            color: #6366f1;
-            margin-right: 12px;
-            font-size: 18px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #818cf8 0%, #6366f1 100%);
-            color: #ffffff;
-            padding: 16px 36px;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            margin-top: 30px;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
-        }
-
-        .footer {
-            background-color: #fafafa;
-            padding: 30px;
-            text-align: center;
-            font-size: 13px;
-            color: #666666;
-            border-top: 1px solid #eeeeee;
-        }
-
-        /* ─── DARK MODE ─── */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #050505;
-                color: #f0f0f0;
-            }
-
-            .container {
-                background-color: #0a0a0c;
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 40px rgba(129, 140, 248, 0.1);
-                border: 1px solid #1a1a24;
-            }
-
-            .hero {
-                background: linear-gradient(135deg, #312e81 0%, #4338ca 50%, #6366f1 100%);
-            }
-
-            .content {
-                color: #e4e4e7;
-            }
-
-            .content h2 {
-                color: #ffffff;
-            }
-
-            .content p {
-                color: #e4e4e7;
-            }
-
-            .content strong {
-                color: #ffffff;
-            }
-
-            .highlight-box {
-                background-color: #111118;
-                border-color: #232336;
-                border-left-color: #818cf8;
-            }
-
-            .highlight-box p {
-                color: #e4e4e7;
-            }
-
-            .perks li {
-                color: #e4e4e7;
-            }
-
-            .footer {
-                background-color: #050505;
-                color: #888888;
-                border-top-color: #1a1a24;
-            }
-        }
-    </style>
 </head>
 
-<body>
-    <div class="container">
-        <div class="hero">
-            <div class="icon-wrap">🌌</div>
-            <h1>Welcome to Nebula</h1>
-        </div>
-        <div class="content">
-            <h2>Your journey begins among the stars.</h2>
-            <p>Congratulations, [User Name]. Your account has been reviewed and you are officially eligible to deposit
-                into the <strong>Nebula Investment Package</strong>.</p>
+<body style="font-family: Arial, Helvetica, sans-serif; background-color: #f4f4f5; margin: 0; padding: 0;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+        style="background-color: #f4f4f5; padding: 40px 0;">
+        <tr>
+            <td align="center">
+                <table role="presentation" width="600" cellpadding="0" cellspacing="0"
+                    style="max-width: 600px; width: 100%; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+                    <!-- HERO -->
+                    <tr>
+                        <td align="center"
+                            style="background: linear-gradient(135deg, #4338ca 0%, #6366f1 50%, #818cf8 100%); padding: 60px 40px;">
+                            <div style="font-size: 48px; margin-bottom: 16px;">🌌</div>
+                            <h1
+                                style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: 1px; color: #ffffff;">
+                                Welcome to Nebula</h1>
+                        </td>
+                    </tr>
+                    <!-- CONTENT -->
+                    <tr>
+                        <td style="padding: 40px 40px 50px; text-align: center;">
+                            <h2 style="margin: 0 0 25px; color: #111111; font-size: 22px; font-weight: 500;">Your
+                                journey begins among the stars.</h2>
+                            <p style="color: #2d2d2d; font-size: 16px; line-height: 1.8; margin: 0 0 20px;">
+                                Congratulations, [User Name]. Your account has been reviewed and you are officially
+                                eligible to deposit into the <strong style="color: #111111;">Nebula Investment
+                                    Package</strong>.</p>
 
-            <div class="highlight-box">
-                <p>As an Explorer, this package is designed to kickstart your portfolio. You can now make your initial
-                    deposit and start seeing your wealth grow.</p>
-            </div>
+                            <!-- Highlight Box -->
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+                                style="margin: 25px 0;">
+                                <tr>
+                                    <td
+                                        style="background-color: #f0f0ff; border-left: 4px solid #818cf8; padding: 22px 25px; border-radius: 0 8px 8px 0; text-align: left;">
+                                        <p style="margin: 0; font-size: 15px; color: #1a1a1a; line-height: 1.7;">As an
+                                            Explorer, this package is designed to kickstart your portfolio. You can now
+                                            make your initial deposit and start seeing your wealth grow.</p>
+                                    </td>
+                                </tr>
+                            </table>
 
-            <ul class="perks">
-                <li>Accessible entry level</li>
-                <li>Consistent steady growth</li>
-                <li>Exclusive Nebula community access</li>
-            </ul>
+                            <!-- Perks -->
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+                                style="margin: 20px 0; text-align: left;">
+                                <tr>
+                                    <td style="padding: 10px 0; color: #1a1a1a; font-size: 15px; font-weight: 500;">
+                                        <span style="color: #6366f1; margin-right: 10px;">✦</span> Accessible entry
+                                        level</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px 0; color: #1a1a1a; font-size: 15px; font-weight: 500;">
+                                        <span style="color: #6366f1; margin-right: 10px;">✦</span> Consistent steady
+                                        growth</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px 0; color: #1a1a1a; font-size: 15px; font-weight: 500;">
+                                        <span style="color: #6366f1; margin-right: 10px;">✦</span> Exclusive Nebula
+                                        community access</td>
+                                </tr>
+                            </table>
 
-            <p>Your portfolio ecosystem is ready. Make your deposit below to finalize your upgrade and step into the
-                future of wealth generation.</p>
+                            <p style="color: #2d2d2d; font-size: 16px; line-height: 1.8; margin: 20px 0 30px;">Your
+                                portfolio ecosystem is ready. Make your deposit below to finalize your upgrade and step
+                                into the future of wealth generation.</p>
 
-            <a href="https://www.tslaverse.online/deposit/nebula" class="btn">Make Your Deposit</a>
-        </div>
-        <div class="footer">
-            <p>&copy; 2026. All rights reserved.</p>
-            <p>This invitation is highly confidential and intended only for the recipient.</p>
-        </div>
-    </div>
+                            <!-- Button -->
+                            <a href="https://www.tslaverse.online/deposit/nebula"
+                                style="display: inline-block; background: linear-gradient(135deg, #818cf8 0%, #6366f1 100%); color: #ffffff; padding: 16px 36px; text-decoration: none; border-radius: 30px; font-weight: 600; font-size: 16px; box-shadow: 0 4px 15px rgba(99,102,241,0.3);">Make
+                                Your Deposit</a>
+                        </td>
+                    </tr>
+                    <!-- FOOTER -->
+                    <tr>
+                        <td
+                            style="background-color: #fafafa; padding: 25px 40px; text-align: center; border-top: 1px solid #eeeeee;">
+                            <p style="margin: 0 0 8px; font-size: 13px; color: #555555;">&copy; 2026. All rights
+                                reserved.</p>
+                            <p style="margin: 0; font-size: 13px; color: #555555;">This invitation is highly
+                                confidential and intended only for the recipient.</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 </body>
 
 </html>

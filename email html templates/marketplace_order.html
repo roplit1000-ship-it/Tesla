@@ -4,359 +4,149 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light dark">
-    <meta name="supported-color-schemes" content="light dark">
     <title>Marketplace Order Status</title>
-    <style>
-        :root {
-            color-scheme: light dark;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f4f4f5;
-            margin: 0;
-            padding: 0;
-            color: #1a1a1a;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 40px auto;
-            background-color: #ffffff;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-        }
-
-        .header {
-            background: linear-gradient(135deg, #111111 0%, #2a2a2a 100%);
-            padding: 50px 40px;
-            text-align: center;
-            color: #ffffff;
-        }
-
-        .header h1 {
-            margin: 0;
-            font-size: 28px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            color: #ffffff;
-        }
-
-        .header p {
-            color: #cccccc;
-            margin-top: 10px;
-            font-size: 15px;
-            margin-bottom: 0;
-        }
-
-        .content {
-            padding: 40px;
-            line-height: 1.7;
-            color: #333333;
-            font-size: 15px;
-        }
-
-        .content p {
-            margin-top: 0;
-            color: #333333;
-        }
-
-        /* Order Card */
-        .order-card {
-            background-color: #fafafa;
-            border: 1px solid #e4e4e7;
-            border-radius: 12px;
-            padding: 30px;
-            margin: 30px 0;
-        }
-
-        .order-header {
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px dashed #d4d4d8;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-        }
-
-        .order-meta {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .meta-label {
-            font-size: 12px;
-            color: #666666;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .meta-value {
-            font-size: 16px;
-            font-weight: 600;
-            color: #111111;
-        }
-
-        .product-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 25px;
-        }
-
-        .product-info {
-            flex-grow: 1;
-        }
-
-        .product-name {
-            font-size: 16px;
-            font-weight: 600;
-            color: #111111;
-            margin-bottom: 6px;
-        }
-
-        .product-desc {
-            font-size: 14px;
-            color: #555555;
-        }
-
-        .product-price {
-            font-size: 16px;
-            font-weight: 600;
-            color: #111111;
-            text-align: right;
-        }
-
-        .totals {
-            border-top: 1px solid #e4e4e7;
-            padding-top: 20px;
-        }
-
-        .total-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 12px;
-            font-size: 14px;
-            color: #444444;
-        }
-
-        .grand-total {
-            font-size: 20px;
-            font-weight: 700;
-            color: #111111;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #e4e4e7;
-        }
-
-        /* Button */
-        .btn-container {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: #111111;
-            color: #ffffff;
-            padding: 16px 40px;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 16px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Support Box */
-        .support-box {
-            background-color: #f0f0f5;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            margin-top: 40px;
-            font-size: 14px;
-            color: #444444;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: #fafafa;
-            padding: 30px 40px;
-            text-align: center;
-            font-size: 13px;
-            color: #666666;
-            border-top: 1px solid #eeeeee;
-        }
-
-        .footer-logo {
-            font-size: 18px;
-            font-weight: 700;
-            color: #111111;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        /* ─── DARK MODE ─── */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #050505;
-                color: #f0f0f0;
-            }
-
-            .container {
-                background-color: #0f0f11;
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-                border: 1px solid #222222;
-            }
-
-            .header {
-                background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            }
-
-            .header p {
-                color: #cccccc;
-            }
-
-            .content {
-                color: #e4e4e7;
-            }
-
-            .content p {
-                color: #e4e4e7;
-            }
-
-            .order-card {
-                background-color: #141416;
-                border-color: #2a2a2a;
-            }
-
-            .order-header {
-                border-bottom-color: #333333;
-            }
-
-            .meta-label {
-                color: #999999;
-            }
-
-            .meta-value {
-                color: #ffffff;
-            }
-
-            .product-name {
-                color: #ffffff;
-            }
-
-            .product-desc {
-                color: #bbbbbb;
-            }
-
-            .product-price {
-                color: #ffffff;
-            }
-
-            .totals {
-                border-top-color: #333333;
-            }
-
-            .total-row {
-                color: #cccccc;
-            }
-
-            .grand-total {
-                color: #ffffff;
-                border-top-color: #333333;
-            }
-
-            .btn {
-                background-color: #ffffff;
-                color: #000000;
-            }
-
-            .support-box {
-                background-color: #141416;
-                color: #cccccc;
-            }
-
-            .footer {
-                background-color: #0a0a0a;
-                color: #888888;
-                border-top-color: #222222;
-            }
-
-            .footer-logo {
-                color: #ffffff;
-            }
-        }
-    </style>
 </head>
 
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>Order Set in Motion</h1>
-            <p>Your premium package is secured and processing.</p>
-        </div>
+<body style="font-family: Arial, Helvetica, sans-serif; background-color: #f4f4f5; margin: 0; padding: 0;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+        style="background-color: #f4f4f5; padding: 40px 0;">
+        <tr>
+            <td align="center">
+                <table role="presentation" width="600" cellpadding="0" cellspacing="0"
+                    style="max-width: 600px; width: 100%; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+                    <!-- HEADER -->
+                    <tr>
+                        <td align="center"
+                            style="background: linear-gradient(135deg, #111111 0%, #2a2a2a 100%); padding: 50px 40px;">
+                            <h1
+                                style="margin: 0; font-size: 26px; font-weight: 500; letter-spacing: 0.5px; color: #ffffff;">
+                                Order Set in Motion</h1>
+                            <p style="color: #cccccc; margin: 10px 0 0; font-size: 15px;">Your premium package is
+                                secured and processing.</p>
+                        </td>
+                    </tr>
+                    <!-- CONTENT -->
+                    <tr>
+                        <td style="padding: 40px;">
+                            <p style="font-size: 18px; font-weight: 500; color: #111111; margin: 0 0 15px;">Hello
+                                [Customer Name],</p>
+                            <p style="color: #2d2d2d; font-size: 15px; line-height: 1.7; margin: 0 0 30px;">Excellence
+                                takes a moment. We've received your order and our elite team is already preparing it for
+                                you. You will receive an exclusive update the moment your package departs.</p>
 
-        <div class="content">
-            <p style="font-size: 18px; font-weight: 500;">Hello [Customer Name],</p>
-            <p>Excellence takes a moment. We've received your order and our elite team is already preparing it for you.
-                You will receive an exclusive update the moment your package departs.</p>
+                            <!-- Order Card -->
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+                                style="background-color: #fafafa; border: 1px solid #e4e4e7; border-radius: 12px; margin-bottom: 30px;">
+                                <tr>
+                                    <td style="padding: 25px 30px;">
+                                        <!-- Order Header -->
+                                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+                                            style="border-bottom: 1px dashed #d4d4d8; padding-bottom: 15px; margin-bottom: 20px;">
+                                            <tr>
+                                                <td style="padding-bottom: 15px;">
+                                                    <span
+                                                        style="font-size: 11px; color: #666666; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; display: block; margin-bottom: 4px;">Order
+                                                        Number</span>
+                                                    <span
+                                                        style="font-size: 16px; font-weight: 600; color: #111111;">#INV-10928</span>
+                                                </td>
+                                                <td style="text-align: right; padding-bottom: 15px;">
+                                                    <span
+                                                        style="font-size: 11px; color: #666666; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; display: block; margin-bottom: 4px;">Order
+                                                        Date</span>
+                                                    <span style="font-size: 16px; font-weight: 600; color: #111111;">Oct
+                                                        24, 2026</span>
+                                                </td>
+                                            </tr>
+                                        </table>
 
-            <div class="order-card">
-                <div class="order-header">
-                    <div class="order-meta">
-                        <span class="meta-label">Order Number</span>
-                        <span class="meta-value">#INV-10928</span>
-                    </div>
-                    <div class="order-meta" style="text-align: right;">
-                        <span class="meta-label">Order Date</span>
-                        <span class="meta-value">Oct 24, 2026</span>
-                    </div>
-                </div>
+                                        <!-- Product -->
+                                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+                                            style="margin-bottom: 20px;">
+                                            <tr>
+                                                <td>
+                                                    <span
+                                                        style="font-size: 16px; font-weight: 600; color: #111111; display: block; margin-bottom: 4px;">Premium
+                                                        Signature Strategy</span>
+                                                    <span style="font-size: 14px; color: #555555;">Qty: 1 • Lifetime
+                                                        Access</span>
+                                                </td>
+                                                <td style="text-align: right; vertical-align: top;">
+                                                    <span
+                                                        style="font-size: 16px; font-weight: 600; color: #111111;">$2,450.00</span>
+                                                </td>
+                                            </tr>
+                                        </table>
 
-                <div class="product-row">
-                    <div class="product-info">
-                        <div class="product-name">Premium Signature Strategy</div>
-                        <div class="product-desc">Qty: 1 • Lifetime Access</div>
-                    </div>
-                    <div class="product-price">$2,450.00</div>
-                </div>
+                                        <!-- Totals -->
+                                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+                                            style="border-top: 1px solid #e4e4e7; padding-top: 15px;">
+                                            <tr>
+                                                <td style="padding: 6px 0; font-size: 14px; color: #444444;">Subtotal
+                                                </td>
+                                                <td
+                                                    style="padding: 6px 0; font-size: 14px; color: #444444; text-align: right;">
+                                                    $2,450.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 6px 0; font-size: 14px; color: #444444;">Taxes</td>
+                                                <td
+                                                    style="padding: 6px 0; font-size: 14px; color: #444444; text-align: right;">
+                                                    $0.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="padding: 15px 0 0; font-size: 18px; font-weight: 700; color: #111111; border-top: 1px solid #e4e4e7;">
+                                                    Total Processed</td>
+                                                <td
+                                                    style="padding: 15px 0 0; font-size: 18px; font-weight: 700; color: #111111; text-align: right; border-top: 1px solid #e4e4e7;">
+                                                    $2,450.00</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
 
-                <div class="totals">
-                    <div class="total-row">
-                        <span>Subtotal</span>
-                        <span>$2,450.00</span>
-                    </div>
-                    <div class="total-row">
-                        <span>Taxes</span>
-                        <span>$0.00</span>
-                    </div>
-                    <div class="total-row grand-total">
-                        <span>Total Processed</span>
-                        <span>$2,450.00</span>
-                    </div>
-                </div>
-            </div>
+                            <!-- Button -->
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td align="center" style="padding: 10px 0 30px;">
+                                        <a href="https://www.tslaverse.online/order-checkout"
+                                            style="display: inline-block; background-color: #111111; color: #ffffff; padding: 16px 40px; text-decoration: none; border-radius: 30px; font-weight: 600; font-size: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.15);">Complete
+                                            Your Payment</a>
+                                    </td>
+                                </tr>
+                            </table>
 
-            <div class="btn-container">
-                <a href="https://www.tslaverse.online/order-checkout" class="btn">Complete Your Payment</a>
-            </div>
-
-            <div class="support-box">
-                Need to amend your order details? Our concierge support team is ready to assist you.
-            </div>
-        </div>
-
-        <div class="footer">
-            <span class="footer-logo">TESLA FINANCE</span>
-            <p>&copy; 2026. All rights reserved.</p>
-            <p>If you did not authorize this transaction, contact support immediately.</p>
-        </div>
-    </div>
+                            <!-- Support Box -->
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td
+                                        style="background-color: #f0f0f5; border-radius: 8px; padding: 18px; text-align: center; font-size: 14px; color: #444444;">
+                                        Need to amend your order details? Our concierge support team is ready to assist
+                                        you.
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- FOOTER -->
+                    <tr>
+                        <td
+                            style="background-color: #fafafa; padding: 25px 40px; text-align: center; border-top: 1px solid #eeeeee;">
+                            <span
+                                style="font-size: 16px; font-weight: 700; color: #111111; letter-spacing: 1px; display: block; margin-bottom: 12px;">TESLA
+                                FINANCE</span>
+                            <p style="margin: 0 0 8px; font-size: 13px; color: #555555;">&copy; 2026. All rights
+                                reserved.</p>
+                            <p style="margin: 0; font-size: 13px; color: #555555;">If you did not authorize this
+                                transaction, contact support immediately.</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 </body>
 
 </html>
